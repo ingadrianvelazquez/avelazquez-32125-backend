@@ -12,11 +12,21 @@
 ```
 *3ro.* Ejecutar
 ```bash
-  node challenge1.js
+  node challenge2.js
 ```
 
 
 ## Changelog / Desafíos realizados
+
+`Desafío #2: Manejo de archivos mediante FS`
+### DEMO en [StackBlitz](https://stackblitz.com/edit/node-engdmq?file=index.js)
+
+- Crear la clase Contenedor cuyo constructor es la ruta al archivo
+- Agregar los métodos para guardar, obtener/eliminar uno puntual o todo, mediante promesas aplicando async/await
+- Registrar en el archivo: datos de productos (título, precio, imagen miniatura) asignando ID incremental sin repetir
+- Crear un objeto con valores arbitrarios e invocar todos sus métodos
+- ***[extra]*** si el archivo no existe, se crea. Se suma método para obtener la cantidad de productos registrados
+
 
 `Desafío #1: Declarar una clase Usuario`
 ### DEMO en [StackBlitz](https://stackblitz.com/edit/node-4gxwge?file=challenge1.js)

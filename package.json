@@ -1,0 +1,23 @@
+{
+  "name": "avelazquez-32125-backend",
+  "version": "1.0.0",
+  "description": "*1ro.* Clonar el proyecto\r ```bash\r   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git\r ```\r *2do.* Ingresar al directorio creado\r ```bash\r   cd avelazquez-32125-backend\r ```\r *3ro.* Ejecutar\r ```bash\r   node challenge2.js\r ```",
+  "main": "challenge1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ingadrianvelazquez/avelazquez-32125-backend/issues"
+  },
+  "homepage": "https://github.com/ingadrianvelazquez/avelazquez-32125-backend#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "title": "producto #1",
+    "prices": 123,
+    "thumbnail": "https://cf.shopee.sg/file/06b4f2ae620ef8577b3ed6a0bb00c26e",
+    "id": 1
+  },
+  {
+    "title": "producto #2",
+    "prices": 246,
+    "thumbnail": "https://cf.shopee.sg/file/06b4f2ae620ef8577b3ed6a0bb00c26e",
+    "id": 2
+  },
+  {
+    "title": "producto #3",
+    "prices": 369,
+    "thumbnail": "https://cf.shopee.sg/file/06b4f2ae620ef8577b3ed6a0bb00c26e",
+    "id": 3
+  }
+]

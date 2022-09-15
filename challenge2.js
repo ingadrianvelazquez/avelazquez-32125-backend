@@ -19,6 +19,15 @@ class Container {
         }
     }
 
+    getPlainFile = async () => {
+        try {
+            const content = await fs.promises.readFile(this.pathFile, 'utf-8')
+            return content
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     save = async (object) => {
         const content = await this.#readFile()
         try {
@@ -38,7 +47,8 @@ class Container {
 
     getAll = async () => {
         const content = await this.#readFile()
-        console.log(content)
+        //console.log(content)
+        return content;
     }
 
     deleteById = async (id) => {
@@ -59,6 +69,8 @@ class Container {
     }
 
 }
+
+module.exports = Container
 
 const testing = async () => {
     const testContainer = new Container('./datafiles/products.txt')
@@ -91,5 +103,5 @@ const testing = async () => {
     await testContainer.getProductCount()
 }
 
-testing();
+//testing();
 

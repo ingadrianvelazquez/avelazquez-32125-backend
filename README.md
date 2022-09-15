@@ -18,6 +18,17 @@
 
 ## Changelog / Desafíos realizados
 
+
+`Desafío #3: Servidor con EXPRESS`
+### DEMO en [Glitch](https://river-woolen-square.glitch.me/)
+
+- Levantar un servidor node.js mediante el modulo express
+- Utilizar la clase Contenedor del desafío anterior
+- Implementar el endpoint /products, que consulte el fichero de productos y retorne todos
+- Implementar el endpoint /randomProduct, que informe un producto al azar del fichero mencionado
+- ***[extra]*** se aplica un template html para ser mas agradable su visualización
+
+
 `Desafío #2: Manejo de archivos mediante FS`
 ### DEMO en [StackBlitz](https://stackblitz.com/edit/node-engdmq?file=index.js)
 

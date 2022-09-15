@@ -12,7 +12,7 @@
 ```
 *3ro.* Ejecutar
 ```bash
-  node challenge2.js
+  nodemon challenge3.js
 ```
 
 

@@ -1,0 +1,31 @@
+### Rest client VSextension test
+
+### GET ALL PRODUCTS
+GET http://localhost:2209/api/productos/ HTTP/1.1
+
+### GET PRODUCT BY ID
+GET http://localhost:2209/api/productos/1 HTTP/1.1
+
+### DELETE PRODUCT BY ID
+DELETE http://localhost:2209/api/productos/2 HTTP/1.1
+
+### POST ADD PRODUCT
+POST http://localhost:2209/api/productos/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Lord of the Ring",
+    "price": "119.99",
+    "thumbnail": "https://images-na.ssl-images-amazon.com/images/I/A1EgynjIE-L.jpg"
+}
+
+### PUT UPDATE PRODUCT
+PUT http://localhost:2209/api/productos/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Lord of the Ring Deluxe Edition",
+    "price": "349.99",
+    "thumbnail": "https://images-na.ssl-images-amazon.com/images/I/A1EgynjIE-L.jpg"
+}
+

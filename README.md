@@ -12,11 +12,21 @@
 ```
 *3ro.* Ejecutar
 ```bash
-  nodemon challenge3.js
+  nodemon challenge4.js
 ```
 
 
 ## Changelog / Desafíos realizados
+
+
+`Desafío #4: API RESTfull con Router`
+### DEMO en [Glitch](https://power-peppermint-jodhpur.glitch.me/)
+
+- Implementar una API RESTfull para operar productos
+- Utilizar una clase separada con soporte de persistencia en memoria
+- Incorporar un Router sobre la url base '/api/productos/'
+- Brindar un formulario para la carga de productos
+- ***[extra]*** se brindan las pruebas realizadas mediante la extension RestClient
 
 
 `Desafío #3: Servidor con EXPRESS`
@@ -26,7 +36,7 @@
 - Utilizar la clase Contenedor del desafío anterior
 - Implementar el endpoint /products, que consulte el fichero de productos y retorne todos
 - Implementar el endpoint /randomProduct, que informe un producto al azar del fichero mencionado
-- ***[extra]*** se aplica un template html para ser mas agradable su visualización
+- ***[extra]*** se aplica un template html para hacer mas agradable su visualización
 
 
 `Desafío #2: Manejo de archivos mediante FS`

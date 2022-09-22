@@ -3,7 +3,7 @@ const app = express();
 
 const Container = require("./challenge2.js");
 const productFile = new Container("./datafiles/products.txt");
-const htmlFile = new Container("./templates/home.html");
+const htmlFile = new Container("./public/home.html");
 
 const getAllProducts = productFile.getAll();
 

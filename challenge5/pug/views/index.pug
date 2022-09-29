@@ -1,0 +1,20 @@
+extends layout
+
+block contenido
+
+    section
+        h1 Challenge #5
+        img(src='/img/pug-logo.jpg', alt='PUG Engine', title='PUG Engine')
+        h2
+            span Adri&aacute;n Vel&aacute;zquez
+        form(action='/products', method='POST')
+            label Title
+            input#title(type='text', name='title', required='')
+            label Price
+            input#price(type='text', name='price', required='')
+            label URL Thumbnail
+            input#thumbnail(type='text', name='thumbnail', required='')
+            input(type='submit', value='ADD PRODUCT')
+            if msg
+                .msg.success Producto agregado!
+            

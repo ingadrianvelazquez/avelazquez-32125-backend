@@ -1,0 +1,24 @@
+<section>
+    <% if (products.length > 0) { %>
+        <table>
+            <tr>
+                <th>Thumb</th>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+            <% products.forEach(prod=>{ %>
+                <tr>
+                    <td><img width=64 src="<%= prod.thumbnail %>" alt="<%= prod.title %>"></td>
+                    <td>
+                        <%= prod.title %>
+                    </td>
+                    <td>
+                        <%= prod.price %>
+                    </td>
+                </tr>
+                <% }) %>
+        </table>
+        <% } else { %>
+            <div class="msg warning">No hay productos!</div>
+            <% } %>
+</section>

@@ -1,0 +1,20 @@
+<section>
+    {{#if products }}
+        <table>
+            <tr>
+                <th>Thumb</th>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+        {{#products}}
+            <tr>
+                <td><img width=64 src="{{thumbnail}}" alt="{{title}}"></td>
+                <td>{{title}}</td>
+                <td>{{price}}</td>
+            </tr>
+        {{/products}}
+        </table>
+    {{else}}
+    <div class="msg warning">No hay productos!</div>
+    {{/if}}
+</section>

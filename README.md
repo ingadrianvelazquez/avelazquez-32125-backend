@@ -2,21 +2,32 @@
 
 ## Ejecutar localmente
 
-*1ro.* Clonar el proyecto
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
 ```
-*2do.* Ingresar al directorio creado
+*2do.* Ingresar al directorio y seleccionar un motor de plantilla
 ```bash
-  cd avelazquez-32125-backend
+  cd avelazquez-32125-backend/challenge5/ejs
+  cd avelazquez-32125-backend/challenge5/hbs
+  cd avelazquez-32125-backend/challenge5/pug
 ```
-*3ro.* Ejecutar
+*3ro.* Ejecutar sobre el template escogido
 ```bash
-  nodemon challenge4.js
+  nodemon server.js
 ```
 
 
 ## Changelog / Desafíos realizados
+
+
+`Desafío #5: Motores de Plantillas`
+### DEMO *HBS* en [Glitch](https://wonderful-sheer-okapi.glitch.me/)
+
+- Utilizando la API de productos ya creada, aplicar visual mediante templates
+- En la raíz debe estar el formulario, cuya acción (POST) impacta en /products
+- En la dirección /products (GET) listar los productos agregados
+- Ambas páginas deben tener un enlace a la otra
+- ***[extra]*** en EJS incorporé un condicional para incluir el listado o el formulario segun parámetros
 
 
 `Desafío #4: API RESTfull con Router`

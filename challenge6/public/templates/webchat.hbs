@@ -1,0 +1,13 @@
+<section class="listado">
+    {{#if data }}
+    {{#data}}
+    <div class="message">
+        <div class="author">{{email}}</div>
+        <div class="text">{{msg}}</div>
+        <div class="date">{{date}}</div>
+    </div>
+    {{/data}}
+    {{else}}
+    <div class="msg warning">No hay mensajes!</div>
+    {{/if}}
+</section>

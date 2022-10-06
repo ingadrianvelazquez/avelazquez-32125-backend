@@ -5,19 +5,26 @@
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
 ```
-*2do.* Ingresar al directorio y seleccionar un motor de plantilla
+*2do.* Ingresar al directorio del desafío
 ```bash
-  cd avelazquez-32125-backend/challenge5/ejs
-  cd avelazquez-32125-backend/challenge5/hbs
-  cd avelazquez-32125-backend/challenge5/pug
+  cd avelazquez-32125-backend/challenge6
 ```
-*3ro.* Ejecutar sobre el template escogido
+*3ro.* Ejecutar
 ```bash
   nodemon server.js
 ```
 
 
 ## Changelog / Desafíos realizados
+
+
+`Desafío #6: WebSocket`
+### DEMO en [Glitch](https://functional-chalk-house.glitch.me//)
+
+- Basado en la entrega anterior sobre HandleBars, implementar sockets
+- Listar los productos que se van agregando en tiempo real debajo del formulario
+- Implementar un chat listando los mensajes en tiempo real para todos los usuarios conectados
+- ***[extra]*** empleado FETCH para el template del listado de productos y mensajes
 
 
 `Desafío #5: Motores de Plantillas`

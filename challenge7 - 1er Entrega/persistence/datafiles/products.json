@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": "13/10/2022, 21:29:47",
+    "name": "Tolkien Deluxe Edition",
+    "desc": "The Hobbit + Lord of the Ring Trilogy",
+    "code": "77650217",
+    "url": "https://images-na.ssl-images-amazon.com/images/I/A1EgynjIE-L.jpg",
+    "price": "149.99",
+    "stock": "984",
+    "id": 1
+  },
+  {
+    "timestamp": "13/10/2022, 21:29:48",
+    "name": "Tolkien Deluxe Pack",
+    "desc": "The Hobbit + Lord of the Ring Trilogy",
+    "code": "77650217",
+    "url": "https://images-na.ssl-images-amazon.com/images/I/A1EgynjIE-L.jpg",
+    "price": "149.99",
+    "stock": "980",
+    "id": 2
+  }
+]

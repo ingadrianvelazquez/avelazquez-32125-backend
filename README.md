@@ -7,7 +7,7 @@
 ```
 *2do.* Ingresar al directorio del desafío
 ```bash
-  cd avelazquez-32125-backend/challenge6
+  cd avelazquez-32125-backend/"challenge7 - 1er Entrega"
 ```
 *3ro.* Ejecutar
 ```bash
@@ -16,6 +16,29 @@
 
 
 ## Changelog / Desafíos realizados
+
+
+`Desafío #7: Primer entrega del Proyecto Final`
+### DEMO en [Glitch](https://warp-wool-lantern.glitch.me/)
+
+- Avance de la aplicación eCommerce Backend
+- La persistencia de productos y del carrito de compras se realiza sobre el filesystem
+- Se implementan 2 conjuntos de rutas: /api/products y /api/cart
+- Sobre el router de productos, se tiene:
+  - GET /:id? para traer todos los productos o solo uno
+  - POST / para incorporar nuevos *[solo disponible para ADMIN]*
+  - PUT /:id para actualizar uno existente *[solo disponible para ADMIN]*
+  - DELETE /:id para eliminar uno existente *[solo disponible para ADMIN]*
+- Sobre el router del carrito, se tiene:
+  - POST / para crear uno nuevo
+  - DELETE /:id para eliminar uno existente
+  - GET /:id/products para traer los productos de un carrito puntual
+  - POST /:id/products para agregar un producto al carrito mediante su identificador (id_prod)
+  - DELETE /:id/products/:id_prod para eliminar un producto existente sobre un carrito puntual
+- Se implementa la variable *admin* para autorizar o no la acción sobre el router de productos
+  - ***[extra]*** Para que pueda ser empleada sin modificar el código, se puede sumar al header del request *Authorization: admin*
+- Se implementa un mensaje por default 404 ante cualquier otra ruta/acción/método
+- ***[extra]*** se brindan las pruebas realizadas mediante la extension RestClient, tanto de productos como el carrito
 
 
 `Desafío #6: WebSocket`

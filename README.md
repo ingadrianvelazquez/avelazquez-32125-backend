@@ -7,7 +7,7 @@
 ```
 *2do.* Ingresar al directorio del desafío
 ```bash
-  cd avelazquez-32125-backend/"challenge7 - 1er Entrega"
+  cd avelazquez-32125-backend/challenge8
 ```
 *3ro.* Ejecutar
 ```bash
@@ -16,6 +16,15 @@
 
 
 ## Changelog / Desafíos realizados
+
+
+`Desafío #8: Nuestra Primera Base de Datos`
+
+- Basado en el Desafío #6: WebSocket, cambiamos la persistencia de archivo/memoria a MySql/SQLite3 respectivamente
+- La persistencia de los mensajes cambian de memoria a SQLite3
+- La persistencia de los productos cambian de filesystem a MariaDB
+- Se agrega un script para crear las tablas necesarias e insertar un registro para pruebas en cada una de ellas
+- ***[extra]*** se brindan la acción de eliminar sobre los productos
 
 
 `Desafío #7: Primer entrega del Proyecto Final`

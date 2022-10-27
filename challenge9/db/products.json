@@ -1,0 +1,65 @@
+[
+	{
+		"_id": {
+			"$oid": "635b026be395857cd0b6d204"
+		},
+		"title": "Grocer's Son, The (Fils de l'épicier, Le)",
+		"price": 1280,
+		"thumbnail": "https://robohash.org/nemoitaquenon.png?size=64x64&set=set1",
+		"stock": 100
+	},
+	{
+		"_id": {
+			"$oid": "635b026be395857cd0b6d205"
+		},
+		"title": "Je suis né d'une cigogne",
+		"price": 1700,
+		"thumbnail": "https://robohash.org/adipisciexplicabofuga.png?size=64x64&set=set1",
+		"stock": 100
+	},
+	{
+		"_id": {
+			"$oid": "635b026be395857cd0b6d206"
+		},
+		"title": "Charming Mass Suicide, A (Hurmaava joukkoitsemurha)",
+		"price": 2300,
+		"thumbnail": "https://robohash.org/velomnisodio.png?size=64x64&set=set1",
+		"stock": 100
+	},
+	{
+		"_id": {
+			"$oid": "635b026be395857cd0b6d207"
+		},
+		"title": "Nazis Strike, The (Why We Fight, 2)",
+		"price": 2860,
+		"thumbnail": "https://robohash.org/pariatursedet.png?size=64x64&set=set1",
+		"stock": 100
+	},
+	{
+		"_id": {
+			"$oid": "635b026be395857cd0b6d208"
+		},
+		"title": "Anna",
+		"price": 3350,
+		"thumbnail": "https://robohash.org/architectodelenitinam.png?size=64x64&set=set1",
+		"stock": 100
+	},
+	{
+		"_id": {
+			"$oid": "635b026be395857cd0b6d209"
+		},
+		"title": "Edmund Kean: Prince Among Lovers (Kean)",
+		"price": 4320,
+		"thumbnail": "https://robohash.org/repudiandaealiquamenim.png?size=64x64&set=set1",
+		"stock": 0
+	},
+	{
+		"_id": {
+			"$oid": "635b026be395857cd0b6d20a"
+		},
+		"title": "Big Snit, The",
+		"price": 4990,
+		"thumbnail": "https://robohash.org/magnamautdistinctio.png?size=64x64&set=set1",
+		"stock": 0
+	}
+]

@@ -18,6 +18,25 @@
 ## Changelog / Desafíos realizados
 
 
+`Desafío #9: MongoDB`
+
+- Crear la base de datos *ecommerce* con 2 colecciones:; *mensajes* y *productos*
+- Agregar 10 documentos a cada una de ellas respectando el formato empleado en el desafío anterior
+- Listar todos los documentos de cada colección y mostrar la cantidad almacenados en ellas
+- Realizar operaciones CRUD sobre la colección de productos:
+  - agregar un nuevo producto
+  - listar los productos con precio menor a 1000 pesos
+  - listar los productos con precio entre los 1000 a 3000 pesos
+  - listar los productos con precio mayor a 3000 pesos
+- Realizar una consulta que traiga sólo el nombre del tercer producto más barato
+- Agregar el campo stock a todos los productos con un valor de 100
+- Cambiar el stock a cero de los productos con precios mayores a 4000 pesos
+- Borrar los productos con precio menor a 1000 pesos
+- Crear un usuario 'pepe' clave: 'asd456' que sólo pueda leer la base de datos ecommerce
+  - Verificar que pepe no pueda cambiar la información
+- ***[extra]*** se brindan los comandos realizados y el contenido final de cada colección
+
+
 `Desafío #8: Nuestra Primera Base de Datos`
 
 - Basado en el Desafío #6: WebSocket, cambiamos la persistencia de archivo/memoria a MySql/SQLite3 respectivamente

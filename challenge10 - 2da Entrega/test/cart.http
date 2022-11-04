@@ -1,0 +1,30 @@
+### Rest client VSextension test
+
+################
+###   CART   ###
+################
+
+### GET CART BY ID
+GET http://localhost:8081/api/cart/x6rW3RBBeSLqfs0sIveh/products HTTP/1.1
+
+### DELETE CART BY ID
+DELETE http://localhost:8081/api/cart/fxUPm3dFHt1yp5Tqhcbf HTTP/1.1
+
+### POST ADD CART
+POST http://localhost:8081/api/cart/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "products": []
+}
+
+### POST ADD PRODUCT TO CART
+POST http://localhost:8081/api/cart/x6rW3RBBeSLqfs0sIveh/products HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_prod": "i7CK3PkDghLYV6UjFRVL"
+}
+
+### DELETE PRODUCT ON CART BY ID
+DELETE http://localhost:8081/api/cart/x6rW3RBBeSLqfs0sIveh/products/i7CK3PkDghLYV6UjFRVL HTTP/1.1

@@ -1,0 +1,8 @@
+### Rest client VSextension test
+
+#################
+###   ERROR   ###
+#################
+
+### 404 ERROR
+GET http://localhost:8081/api/another/ HTTP/1.1

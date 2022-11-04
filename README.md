@@ -7,15 +7,31 @@
 ```
 *2do.* Ingresar al directorio del desafío
 ```bash
-  cd avelazquez-32125-backend/challenge8
+  cd avelazquez-32125-backend/"challenge10 - 2da Entrega"
 ```
-*3ro.* Ejecutar
+*3ro.* Ejecutar alguna de las opciones
 ```bash
-  nodemon server.js
+  npm run firebase
+  npm run mongodb
 ```
 
 
 ## Changelog / Desafíos realizados
+
+`Desafío #10: Primer entrega del Proyecto Final`
+
+- Basándonos en los contenedores ya desarrollados (memoria, archivos) crear uno para Firebase y otro para MongoDB
+- Para cada contenedor, se crean sus clases derivadas DAOs, una para trabajar con Productos y otra con Carritos
+- Se separan los elementos en sus correspondientes carpetas:
+  - containers
+  - daos
+  - datafiles (*para los archivos*)
+  - models
+  - persistence (*donde tambien reside la configuración de las bases*)
+  - routes (*desde donde se opera la variable de entorno, para levantar el container solicitado*)
+  - test (*pruebas realizadas mediante RestClient*)
+- Se opera un container u otro mediante la variable de entorno CONNECTOR
+- ***[extra]*** se suma el container Knex para MariaDB y SQLite3
 
 
 `Desafío #9: MongoDB`

@@ -7,12 +7,11 @@
 ```
 *2do.* Ingresar al directorio del desafío
 ```bash
-  cd avelazquez-32125-backend/"challenge10 - 2da Entrega"
+  cd avelazquez-32125-backend/challenge11
 ```
-*3ro.* Ejecutar alguna de las opciones
+*3ro.* Ejecutar
 ```bash
-  npm run firebase
-  npm run mongodb
+  nodemon server.js
 ```
 
 

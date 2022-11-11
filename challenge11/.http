@@ -1,0 +1,5 @@
+### TEST FAKER :: DEFAULT 5
+GET http://localhost:8081/api/products-test HTTP/1.1
+
+### TEST FAKER :: GET A SPECIFIC QUANTITY
+GET http://localhost:8081/api/products-test/3 HTTP/1.1

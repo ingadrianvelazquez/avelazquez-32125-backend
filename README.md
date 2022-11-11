@@ -18,6 +18,21 @@
 
 ## Changelog / Desafíos realizados
 
+`Desafío #11: Mocks Y Normalización`
+
+- Basándonos en el desafío#8 (nuestra primer base de datos), empleamos **faker** para crear productos al azar
+  - bajo la ruta '/api/products-test/:count?' se listarán *count* productos generados al azar o 5 por defecto
+- Sobre los mensajes del chat, ampliamos su formato para aplicar **normalizr**
+- La persistencia de los mensajes ahora se hace bajo contenedor de archivos, para permitir objetos anidados
+- Se aplica el mismo esquema de normalización al server como frontend para que puedan operar correctamente
+- La lista de mensajes registrados, deben viajar al front normalizados y allí ser desnormalizados para su correcta visualización
+- Se informa el porcentaje de compresión que se realizó en la operación
+  - Sobre la prueba realizada (dejo archivo generado) su valor fue de 78,05%
+- ***[extra]*** agrego un botón extra a cada formulario para agregar elementos generados al azar mediante *faker*
+- ***[extra]*** se brindan las pruebas realizadas mediante la extensión RestClient, sobre la ruta de productos al azar
+- **nota** debido a emplear mysql/mariadb para los productos no lo he subido a Glitch
+
+
 `Desafío #10: Primer entrega del Proyecto Final`
 
 - Basándonos en los contenedores ya desarrollados (memoria, archivos) crear uno para Firebase y otro para MongoDB

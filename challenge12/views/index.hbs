@@ -1,0 +1,60 @@
+<header>
+    <div class="welcome">
+        Welcome <strong>{{username}}</strong>
+    </div>
+    <div class="logout">
+        <a href="logout">Logout</a>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<div class="unmedio">
+    <section>
+        <h3>Product Form</h3>
+        <form id="catalogForm">
+            <input type="text" name="title" id="title" required placeholder="title">
+            <input type="text" name="price" id="price" required placeholder="price">
+            <input type="text" name="thumbnail" id="thumbnail" required placeholder="url thumbnail">
+            <button id="btnProd">ADD PRODUCT</button>
+            <button id="btnRandom">ADD RANDOM</button>
+
+            {{#if msg}}
+                <div class="msg success">Product added!</div>
+            {{/if}}
+
+        </form>
+    </section>
+
+    <div id="productList"></div>
+</div>
+
+<div class="unmedio">
+    <section>
+        <h3>WebChat - <i>[<span id=compressRate></span>% zip]</i></h3>
+        <form id="webchatForm">
+            <input type="email" name="email" id="email" required placeholder="email">
+            <div class="unmedio">
+                <input type="text" name="name" id="name" required placeholder="name">
+            </div>
+            <div class="unmedio">
+                <input type="text" name="surname" id="surname" required placeholder="surname">
+            </div>
+            <div class="clear"></div>
+            <div class="unmedio">
+                <input type="number" name="age" id="age" required placeholder="age">
+            </div>
+            <div class="unmedio">
+                <input type="text" name="alias" id="alias" required placeholder="alias">
+            </div>
+            <div class="clear"></div>
+            <input type="text" name="avatar" id="avatar" required placeholder="avatar">
+            <input type="text" name="message" id="message" required placeholder="message">
+            <button id="btnChat">SEND MESSAGE</button>
+            <button id="btnMsgRandom">SEND RANDOM</button>
+        </form>
+    </section>
+
+    <div id="messageList"></div>
+</div>
+
+<div class="clear"></div>

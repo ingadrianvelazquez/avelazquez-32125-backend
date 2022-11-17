@@ -1,0 +1,18 @@
+<div class="unmedio-centrado">
+    <section>
+        <h3>Login Form</h3>
+        <form id="loginForm" method="post" action="login">
+            <input type="text" name="username" id="username" required placeholder="Username">
+            <button id="btnLogin">LOGIN</button>
+
+            <div id="msgError">
+                {{#if msgError}}
+                <div class="alert alert-error">{{msgError}}</div>
+                {{/if}}
+            </div>
+
+        </form>
+    </section>
+</div>
+
+<div class="clear"></div>

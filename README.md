@@ -7,7 +7,7 @@
 ```
 *2do.* Ingresar al directorio del desafío
 ```bash
-  cd avelazquez-32125-backend/challenge11
+  cd avelazquez-32125-backend/challenge12
 ```
 *3ro.* Ejecutar
 ```bash
@@ -16,6 +16,23 @@
 
 
 ## Changelog / Desafíos realizados
+
+`Desafío #12: Persistir datos de sesión en Mongo Atlas`
+
+- Basándonos en el desafío anterior (mocks y normalización), permitiremos loguear a un cliente y asociarle una sesión
+- La persistencia de los datos de sesión será sobre Mongo Atlas
+- La página inicial, muestra:
+  - el formulario de login, si el usuario no inicio sesión aún o expiró la misma
+    - se contempla y alerta sobre credenciales incorrectas
+  - la página principal, donde operar mensajes y productos si el usuario se logueó exitosamente
+    - en el header de esta se lo saluda y brinda el botón para cerrar sesión
+- Para las pruebas se emplea y parametriza como variable de entorno, el usuario *WillyWonka*
+- La acción de logout, despide al usuario, destruye la sesión y luego de 2 segundos lo redirige nuevamente al formulario de login
+- Cada nuevo request sobre la página principal, mantiene la sesión activa si esta no expiró aún
+  - caso contrario, se redirige al usuario visitante al formulario de login
+- ***[extra]*** simplifiqué el archivo que levanta el server, diviendo su contenido en los controladores y routers necesarios
+- **nota** debido a emplear mysql/mariadb para los productos no lo he subido a Glitch
+
 
 `Desafío #11: Mocks Y Normalización`
 

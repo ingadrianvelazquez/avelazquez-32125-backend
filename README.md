@@ -4,18 +4,27 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-```
-*2do.* Ingresar al directorio del desafío
-```bash
-  cd avelazquez-32125-backend/challenge12
-```
-*3ro.* Ejecutar
-```bash
+  cd avelazquez-32125-backend/challenge13
+  npm i
   nodemon server.js
 ```
 
 
 ## Changelog / Desafíos realizados
+
+`Desafío #13: Inicio de Sesión`
+
+- Basándonos en el desafío anterior (datos de sesión en Mongo Atlas), emplearemos passport-local para permitir registrarse y loguearse a los usuarios
+- La persistencia de los datos de sesión y usuarios será sobre Mongo Atlas
+- El formulario de registro, solicita usuario (email) y contraseña
+  - si el usuario ya se encuentra registrado, informa el error
+  - si la registracion es exitosa, lo redirige a la pantalla de login
+- El formulario de login, solicita las credenciales
+    - si son incorrectas (el usuario no existe o la contraseña no coincide) se alerta el error
+    - caso contrario, le brinda acceso a la página principal, donde operar mensajes y productos
+- ***[extra]*** se brindan las pruebas realizadas mediante la extension RestClient
+- **nota** debido a emplear mysql/mariadb para los productos no lo he subido a Glitch
+
 
 `Desafío #12: Persistir datos de sesión en Mongo Atlas`
 

@@ -25,6 +25,12 @@ body {
     padding: 1%;
 }
 
+.untercio {
+    float: left;
+    width: 31%;
+    padding: 1%;
+}
+
 .unmedio-centrado {
     max-width: 1920px;
     width: 48%;
@@ -50,6 +56,30 @@ section {
 
 section.listado {
     max-width: 640px;
+}
+
+section.info {
+    max-width: 1280px;
+    text-align: left;
+    width: 80%;
+    margin: 25px auto;
+}
+
+section.info h3 {
+    margin-bottom: 15px;
+}
+
+section.info p {
+    color: #0d5c72;
+    font-style: italic;
+    margin: 5px;
+}
+
+section.info pre {
+    background: #dadada;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 h1 {

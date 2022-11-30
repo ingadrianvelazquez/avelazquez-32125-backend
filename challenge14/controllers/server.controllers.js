@@ -1,10 +1,17 @@
 // dotenv
 import * as dotenv from 'dotenv'
 dotenv.config()
+//yargs
+import yargsImport from 'yargs/yargs'
+const yargs = yargsImport(process.argv.slice(2))
+const args = yargs
+    .default({ port: 8080 })
+    .alias({ p: 'port' })
+    .argv
 
 //server
 import express from 'express'
-const PORT = process.env.PORT || 8081
+const PORT = args.port
 //templates
 import hbs from 'express-handlebars'
 //socket

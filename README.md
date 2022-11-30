@@ -12,6 +12,21 @@
 
 ## Changelog / Desafíos realizados
 
+`Desafío #14: Usando el Objeto Process`
+
+- Basándonos en el desafío anterior (Inicio de Sesión), se realizan los siguientes cambios:
+- Se mueven todas las credenciales y algunos otros datos de configuración al archivo ***.env*** y se carga mediante la librería **dotenv**
+- Se emplea **yargs** para tomar el puerto desde los argumentos pasados por línea de comandos
+  - por default 8080
+  - se emplea el alias ***p: 'port'***
+- Se brinda la ruta **/info** para mostrar información del proceso, sistema y proyecto
+- Se brinda la ruta **/randoms/:count?**  para calcular *count* numeros al azar entre 1 y 1000, para luego mostrar las veces que estos se repitieron
+  - si no se brinda el parametro *count* por defecto será 100.000.000
+  - para que la operación **NO** sea bloqueante, se implementa ***fork***
+- ***[extra]*** se brindan las pruebas realizadas mediante la extension RestClient
+- **nota** debido a emplear mysql/mariadb para los productos no lo he subido a Glitch, sin embargo pruede probarse ya que esto es ajeno a las bases
+
+
 `Desafío #13: Inicio de Sesión`
 
 - Basándonos en el desafío anterior (datos de sesión en Mongo Atlas), emplearemos passport-local para permitir registrarse y loguearse a los usuarios

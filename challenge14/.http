@@ -1,0 +1,26 @@
+### POST SIGNUP
+POST http://localhost:8081/signup/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "willy@test.com",
+    "password": "AlgoS1mpl3Ñ"
+}
+
+### POST LOGIN ERROR
+POST http://localhost:8081/login/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "willy@test.com",
+    "password": "AlgoS1mpl3Ñ"
+}
+
+### POST LOGIN OK
+POST http://localhost:8081/login/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "willy@test.com",
+    "password": "wonka"
+}

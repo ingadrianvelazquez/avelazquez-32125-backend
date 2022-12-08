@@ -77,7 +77,7 @@ app.use(uniqueSession)
 
 initPassport()
 app.use(passport.initialize())
-app.use(passport.session()) 
+app.use(passport.session())
 
 // convert a connect middleware to a Socket.IO middleware
 const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);

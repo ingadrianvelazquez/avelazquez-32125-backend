@@ -5,13 +5,17 @@ dotenv.config()
 import yargsImport from 'yargs/yargs'
 const yargs = yargsImport(process.argv.slice(2))
 const args = yargs
-    .default({ port: 8080 })
-    .alias({ p: 'port' })
+    .default({ port: 8080, mode: 'FORK' })
+    .alias({ p: 'port', m: 'mode' })
     .argv
 
 //server
 import express from 'express'
 const PORT = args.port
+const MODE = args.mode
+import * as OS from 'os'
+const numCPUs = OS.cpus().length
+
 //templates
 import hbs from 'express-handlebars'
 //socket
@@ -73,10 +77,10 @@ app.use(uniqueSession)
 
 initPassport()
 app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.session()) 
 
 // convert a connect middleware to a Socket.IO middleware
 const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
 io.use(wrap(uniqueSession));
 
-export { PORT, app, httpServer, io, msgDB, mysqlDB }
+export { PORT, app, httpServer, io, msgDB, mysqlDB, MODE, numCPUs }

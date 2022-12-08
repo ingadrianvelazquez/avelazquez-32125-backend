@@ -4,13 +4,32 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge13
+  cd avelazquez-32125-backend/challenge15
   npm i
-  nodemon server.js
+  nodemon server.js --port 8080
 ```
 
 
 ## Changelog / Desafíos realizados
+
+`Desafío #15: Server con Balanceador de Carga`
+
+- Basándonos en el desafío anterior (Usando el Objeto Process), se realizan los siguientes cambios:
+- Se agrega un nuevo parámetro/argumento de ejecución para indicar si levanta el servidor en modo FORK o CLUSTER
+  - por default FORM
+  - se emplea el alias ***m: 'mode'***
+- Se agrega a la ruta /info la información sobre la cantidad de procesadores/hilos que posee el server
+- Se brindan los comandos ejecutados para levantar el server en modo FORK y CLUSTER, desde:
+  - nodemon
+  - forever
+  - pm2
+- Se configura y levanta **NGNIX** para:
+  - redirigir */api/randoms* a un cluster (creado desde node) sobre el puerto 8081
+  - el resto de las consultas sobre un server individual en el puerto 8080
+- Se modifica **NGNIX** y recarga (*reload*) para:
+  - redirigir */api/randoms* a un cluster de servidores gestionado por **NGINX** repartidos equitativamente escuchando sobre los puertos 8082 al 8085
+- ***[extra]*** se brindan el archivo de configuración de **NGINX**
+
 
 `Desafío #14: Usando el Objeto Process`
 

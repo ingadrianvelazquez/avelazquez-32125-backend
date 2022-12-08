@@ -1,0 +1,22 @@
+<div class="unmedio-centrado">
+    <section>
+        <h3>SignUp Form</h3>
+        <form id="signupForm" method="post" action="signup">
+            <input type="email" name="username" id="username" required placeholder="Username">
+            <input type="password" name="password" id="password" required placeholder="Password">
+            
+            <button id="btnLogin">SIGNUP</button>
+            <a href="login">LOGIN</a>
+            <div class="clear"></div>
+
+            <div id="msgError">
+                {{#if msgError}}
+                <div class="alert alert-error">{{msgError}}</div>
+                {{/if}}
+            </div>
+
+        </form>
+    </section>
+</div>
+
+<div class="clear"></div>

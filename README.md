@@ -16,7 +16,7 @@
 
 - Basándonos en el desafío anterior (Usando el Objeto Process), se realizan los siguientes cambios:
 - Se agrega un nuevo parámetro/argumento de ejecución para indicar si levanta el servidor en modo FORK o CLUSTER
-  - por default FORM
+  - por default FORK
   - se emplea el alias ***m: 'mode'***
 - Se agrega a la ruta /info la información sobre la cantidad de procesadores/hilos que posee el server
 - Se brindan los comandos ejecutados para levantar el server en modo FORK y CLUSTER, desde:

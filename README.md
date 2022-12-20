@@ -4,7 +4,7 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge15
+  cd avelazquez-32125-backend/challenge16
   npm i
   nodemon server.js --port 8080
 ```

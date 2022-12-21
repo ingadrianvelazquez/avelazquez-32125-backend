@@ -1,10 +1,12 @@
 import Router from 'express'
 import passport from 'passport'
 export const sessionRouter = Router()
+import { loggerConsole } from '../controllers/server.controllers.js'
 
 let sessionActive = undefined
 
 sessionRouter.get('/', (req, res, next) => {
+    loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
     // I don't use middleware to avoid wasting more time with hbs
     if (req.isAuthenticated()) {
         sessionActive = true
@@ -17,6 +19,7 @@ sessionRouter.get('/', (req, res, next) => {
 })
 
 sessionRouter.get('/logout', (req, res) => {
+    loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
     const username = req.session.user
     req.session.destroy(err => {
         if (err) return res.send(err)
@@ -26,14 +29,17 @@ sessionRouter.get('/logout', (req, res) => {
 })
 
 sessionRouter.get('/login', (req, res) => {
+    loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
     res.render('login.hbs')
 })
 
 sessionRouter.get('/login-error', (req, res) => {
+    loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
     res.render('login-error.hbs')
 })
 
 // sessionRouter.post('/login', (req, res) => {
+//     loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
 //     const { username, password } = req.body
 //     if (username != process.env.TESTING_USER) {
 //         res.render('login.hbs', { msgError: 'Wrong Credentials' })
@@ -51,14 +57,17 @@ sessionRouter.post('/login', passport.authenticate('login', {
 }))
 
 sessionRouter.get('/signup', (req, res) => {
+    loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
     res.render('register.hbs')
 })
 
 sessionRouter.get('/signup-error', (req, res) => {
+    loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
     res.render('register-error.hbs')
 })
 
 sessionRouter.get('/signup-success', (req, res) => {
+    loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
     res.render('login-ok.hbs')
 })
 

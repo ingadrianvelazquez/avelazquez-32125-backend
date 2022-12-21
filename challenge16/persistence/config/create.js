@@ -1,3 +1,5 @@
+import { loggerConsole, loggerError } from '../../controllers/server.controllers.js'
+
 const dropTableIfExists = async (knex, table) => {
     await knex.schema.dropTableIfExists(table)
 }
@@ -10,8 +12,8 @@ export const createTableProducts = async (knex, table) => {
         structure.float('price')
         structure.string('thumbnail')
     })
-        .then(() => console.log(`table ${table} created`))
-        .catch((err) => { console.error(err); throw err })
+        .then(() => loggerConsole.info(`table ${table} created`))
+        .catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
         .finally(() => { })
 }
 
@@ -23,7 +25,7 @@ export const createTableMessages = async (knex, table) => {
         structure.string('msg')
         structure.string('date')
     })
-        .then(() => console.log(`table ${table} created`))
-        .catch((err) => { console.error(err); throw err })
+        .then(() => loggerConsole.info(`table ${table} created`))
+        .catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
         .finally(() => { })
 }

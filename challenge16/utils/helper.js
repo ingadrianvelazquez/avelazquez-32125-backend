@@ -1,10 +1,13 @@
+import { loggerConsole } from '../controllers/server.controllers.js'
+const child = loggerConsole.child({ 'childON': 'ProcessInfo' })
+
 export const viewOnConsole = () => {
-    console.log('Arguments: ', process.argv)
-    console.log('S.O.: ', process.env.OS)
-    console.log('Platform: ', process.platform)
-    console.log('Process ID: ', process.pid)
-    console.log('Node: ', process.version)
-    console.log('Total memory reserved (RSS): ', process.memoryUsage().rss)
-    console.log('Exec Path: ', process.execPath)
-    console.log('Project Folder: ', process.cwd())
+    child.info('Arguments: ', process.argv)
+    child.info('S.O.: ', process.env.OS)
+    child.info('Platform: ', process.platform)
+    child.info('Process ID: ', process.pid)
+    child.info('Node: ', process.version)
+    child.info('Total memory reserved (RSS): ', process.memoryUsage().rss)
+    child.info('Exec Path: ', process.execPath)
+    child.info('Project Folder: ', process.cwd())
 }

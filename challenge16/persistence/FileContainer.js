@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+import { loggerConsole, loggerError } from '../controllers/server.controllers.js'
 
 export default class FileContainer {
 
@@ -26,7 +27,8 @@ export default class FileContainer {
             fs.writeFileSync(this.pathFile, JSON.stringify([...this.elements, { ...object, id: idCreated }], null, 2), 'utf-8')
             return idCreated
         } catch (err) {
-            console.error('[ERROR] on Save > ' + err)
+            loggerConsole.error('[ERROR] on Save > ' + err)
+            loggerError.error('[ERROR] on Save > ' + err)
             return { 'error': 1, 'description': `[ERROR] on Save: ${err}` }
         }
     }
@@ -51,7 +53,7 @@ export default class FileContainer {
                     : elem
             )
             fs.writeFileSync(this.pathFile, JSON.stringify(this.elements, null, 2), 'utf-8')
-            console.log(`[OK] update id ${id}`)
+            loggerConsole.info(`[OK] update id ${id}`)
             ret = { 'error': 0, 'description': `Update ID ${id} Successful` }
         }
         return ret
@@ -63,7 +65,7 @@ export default class FileContainer {
         if (item) {
             this.elements = this.elements.filter(elem => elem.id !== id)
             fs.writeFileSync(this.pathFile, JSON.stringify(this.elements, null, 2), 'utf-8')
-            console.log(`[OK] delete id ${id}`)
+            loggerConsole.info(`[OK] delete id ${id}`)
             ret = { 'error': 0, 'description': `Delete ID ${id} Successful` }
         }
         return ret
@@ -71,7 +73,7 @@ export default class FileContainer {
 
     deleteAll = () => {
         fs.writeFileSync(this.pathFile, '[]', 'utf-8')
-        console.log('[OK] delete ALL')
+        loggerConsole.info('[OK] delete ALL')
         return { 'error': 0, 'description': `Delete ALL Successful` }
     }
 

@@ -1,4 +1,4 @@
-import { PORT, app, httpServer, io, MODE, numCPUs } from './controllers/server.controllers.js'
+import { PORT, app, httpServer, io, MODE, numCPUs, loggerConsole, loggerWarning } from './controllers/server.controllers.js'
 import { socketController } from './controllers/socket.controllers.js'
 import { fakerRouter } from './routes/faker.routes.js'
 import { sessionRouter } from './routes/session.routes.js'
@@ -12,24 +12,26 @@ app.use('/info', infoRouter)
 app.use('/', sessionRouter)
 //default
 app.all('*', (req, res) => {
+    loggerConsole.warn({ 'url': req.originalUrl, 'method': req.method })
+    loggerWarning.warn({ 'url': req.originalUrl, 'method': req.method })
     res.status(404).json({ 'error': -1, 'description': `${req.method} on ${req.path} not implemented` })
 })
 
 if (MODE == 'CLUSTER' && cluster.isPrimary) {
-    console.log(`Threads: ${numCPUs}`)
+    loggerConsole.info(`Threads: ${numCPUs}`)
     for (let aux = 0; aux < numCPUs; aux++)
         cluster.fork()
 
     cluster.on('exit', worker => {
-        console.log(`Worker`, worker.process.pid, 'died', new Date().toLocaleString())
+        loggerConsole.info(`Worker`, worker.process.pid, 'died', new Date().toLocaleString())
         //cluster.fork()  //get up another
     })
 } else {
     process.on('exit', code => {
-        console.log(`Exit code: ${code}`)
+        loggerConsole.info(`Exit code: ${code}`)
     })
 
     //listener
-    httpServer.listen(PORT, () => console.log(`Server UP on ${PORT} with processID: ${process.pid}`));
+    httpServer.listen(PORT, () => loggerConsole.info(`Server UP on ${PORT} with processID: ${process.pid}`));
     io.on('connection', socket => socketController(socket))
 }

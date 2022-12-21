@@ -1,3 +1,5 @@
+import { loggerConsole } from '../controllers/server.controllers.js'
+
 const socket = io()
 
 const normalizer = normalizr
@@ -75,13 +77,13 @@ socket.on('updateCatalog', async catalog => {
 })
 
 socket.on('updateMessages', async webchat => {
-    console.log('----- normalized -----')
-    console.log(webchat)
+    loggerConsole.info('----- normalized -----')
+    loggerConsole.info(webchat)
     //const msgs = await renderTemplate('webchat', webchat)
     const denormalizedData = await denormalize(webchat.result, schemaChat, webchat.entities)
     const msgs = await renderTemplate('webchat', denormalizedData.messages)
-    console.log('----- denormalized -----')
-    console.log(denormalizedData)
+    loggerConsole.info('----- denormalized -----')
+    loggerConsole.info(denormalizedData)
     document.querySelector('#messageList').innerHTML = msgs
 })
 

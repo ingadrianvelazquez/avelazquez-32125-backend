@@ -12,6 +12,7 @@ import { User } from '../models/User.js'
 import UserDaoMongoDB from '../daos/UserDaoMongoDB.js'
 const users = new UserDaoMongoDB();
 
+import { loggerConsole } from './server.controllers.js'
 
 export function createBCryptHash(password) {
     return bCrypt.hashSync(
@@ -27,13 +28,13 @@ export function isValidPassword(user, password) {
 export const initPassport = () => {
     passport.use('login', new LocalStrategy(async (username, password, done) => {
         let user = await users.getByKeyValue('username', username)
-        console.log('register', user)
+        loggerConsole.info('register', user)
         if (!user) {
-            console.log(`Username ${username} Not Found`);
+            loggerConsole.info(`Username ${username} Not Found`);
             return done(null, false, { msgError: 'Wrong Credentials' });
         }
         if (!isValidPassword(user, password)) {
-            console.log('Invalid Password');
+            loggerConsole.info('Invalid Password');
             return done(null, false, { msgError: 'Wrong Credentials' });
         }
         return done(null, user);
@@ -49,10 +50,10 @@ export const initPassport = () => {
 
             let user = await users.getByKeyValue('username', username)
             if (user) {
-                console.log('User already exists');
+                loggerConsole.info('User already exists');
                 msg = { msgError: 'User Already Exists' }
             } else {
-                console.log('Successfully SignUp User')
+                loggerConsole.info('Successfully SignUp User')
                 newUser = new User(username, createBCryptHash(password))
                 users.save(newUser)
             }

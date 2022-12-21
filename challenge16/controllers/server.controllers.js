@@ -16,6 +16,15 @@ const MODE = args.mode
 import * as OS from 'os'
 const numCPUs = OS.cpus().length
 
+//logger
+import pino from 'pino'
+const loggerConsole = pino()
+loggerConsole.level = 'info'
+const loggerWarning = pino('./logs/warning.log')
+loggerWarning.level = 'warn'
+const loggerError = pino('./logs/error.log')
+loggerError.level = 'error'
+
 //templates
 import hbs from 'express-handlebars'
 //socket
@@ -45,6 +54,12 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+//config gzip
+/* before >> 2.32 kB */
+/* after  >> 1.16 kB */
+import compression from 'compression'
+app.use(compression())
 
 //config templates
 app.use(express.static('public'))
@@ -83,4 +98,4 @@ app.use(passport.session())
 const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
 io.use(wrap(uniqueSession));
 
-export { PORT, app, httpServer, io, msgDB, mysqlDB, MODE, numCPUs }
+export { PORT, app, httpServer, io, msgDB, mysqlDB, MODE, numCPUs, loggerConsole, loggerWarning, loggerError }

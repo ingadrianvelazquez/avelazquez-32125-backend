@@ -1,5 +1,6 @@
 import normalizr from 'normalizr'
 import util from 'util'
+import { loggerConsole } from './server.controllers.js'
 
 export const normalize = normalizr.normalize
 export const denormalize = normalizr.denormalize
@@ -16,7 +17,7 @@ export const schemaChat = new schema.Entity('chat', {
 })
 
 export const print = (object) => {
-    console.log(util.inspect(object, false, 12, true))
+    loggerConsole.info(util.inspect(object, false, 12, true))
 }
 
 export const getNormalizedData = (originalData) => {

@@ -1,3 +1,5 @@
+import { loggerConsole, loggerError } from '../controllers/server.controllers.js'
+
 export class MongoDBContainer {
     constructor(tableModel) {
         this.tableModel = tableModel
@@ -9,8 +11,8 @@ export class MongoDBContainer {
         await userSaveModel.save()
             .then((res) => {
                 ret = res._id
-                console.log(`[OK] insert on ${this.tableModel.collection.collectionName} ID: ${ret}`)
-            }).catch((err) => { console.error(err); ret = { 'error': 1, 'description': `[ERROR] Save on ${this.tableModel.collection.collectionName}: ${err}` } })
+                loggerConsole.info(`[OK] insert on ${this.tableModel.collection.collectionName} ID: ${ret}`)
+            }).catch((err) => { loggerConsole.error(err); loggerError.error(err); ret = { 'error': 1, 'description': `[ERROR] Save on ${this.tableModel.collection.collectionName}: ${err}` } })
             .finally(() => { })
         return ret
     }
@@ -22,7 +24,7 @@ export class MongoDBContainer {
                 for (let row of rows) {
                     ret.push(row)
                 }
-            }).catch((err) => { console.error(err); throw err })
+            }).catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
             .finally(() => { })
         return ret;
     }
@@ -33,7 +35,7 @@ export class MongoDBContainer {
         await this.tableModel.find({ _id: id })
             .then((row) => {
                 element = row
-            }).catch((err) => { console.error(err); throw err })
+            }).catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
             .finally(() => { })
         if (element)
             ret = element[0]
@@ -46,7 +48,7 @@ export class MongoDBContainer {
         await this.tableModel.find({ [key]: value })
             .then((row) => {
                 element = row
-            }).catch((err) => { console.error(err); throw err })
+            }).catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
             .finally(() => { })
         if (element)
             ret = element[0]
@@ -57,9 +59,9 @@ export class MongoDBContainer {
         let ret = { 'error': 2, 'description': `Element ID ${id} on ${this.tableModel.collection.collectionName} Not Found` }
         await this.tableModel.findByIdAndUpdate(id, changes)
             .then(() => {
-                console.log(`[OK] update ID ${id} on ${this.tableModel.collection.collectionName}`)
+                loggerConsole.info(`[OK] update ID ${id} on ${this.tableModel.collection.collectionName}`)
                 ret = { 'error': 0, 'description': `Update ID ${id} on ${this.tableModel.collection.collectionName} Successful` }
-            }).catch((err) => { console.error(err); throw err })
+            }).catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
             .finally(() => { })
         return ret
     }
@@ -68,17 +70,17 @@ export class MongoDBContainer {
         let ret = { 'error': 2, 'description': `Element ID ${id} on ${this.tableModel.collection.collectionName} Not Found` }
         await this.tableModel.findByIdAndRemove(id)
             .then(() => {
-                console.log(`[OK] delete ID ${id} on ${this.tableModel.collection.collectionName}`)
+                loggerConsole.info(`[OK] delete ID ${id} on ${this.tableModel.collection.collectionName}`)
                 ret = { 'error': 0, 'description': `Delete ID ${id} on ${this.tableModel.collection.collectionName} Successful` }
-            }).catch((err) => { console.error(err); throw err })
+            }).catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
             .finally(() => { })
         return ret
     }
 
     deleteAll = async () => {
         await this.tableModel.deleteMany()
-            .then(() => console.log(`[OK] delete ALL on ${this.tableModel.collection.collectionName}`)
-            ).catch((err) => { console.error(err); throw err })
+            .then(() => loggerConsole.info(`[OK] delete ALL on ${this.tableModel.collection.collectionName}`)
+            ).catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
             .finally(() => { })
         return { 'error': 0, 'description': `Delete ALL on ${this.tableModel.collection.collectionName} Successful` }
     }

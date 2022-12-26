@@ -5,7 +5,7 @@ dotenv.config()
 import yargsImport from 'yargs/yargs'
 const yargs = yargsImport(process.argv.slice(2))
 const args = yargs
-    .default({ port: 8080, mode: 'FORK' })
+    .default({ port: process.env.PORT, mode: 'FORK' })
     .alias({ p: 'port', m: 'mode' })
     .argv
 

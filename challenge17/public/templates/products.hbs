@@ -1,0 +1,22 @@
+<section class="listado">
+    {{#if data }}
+        <table>
+            <tr>
+                <th>Thumb</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        {{#data}}
+            <tr>
+                <td><img width=64 src="{{thumbnail}}" alt="{{title}}"></td>
+                <td>{{title}}</td>
+                <td>{{price}}</td>
+                <td><a href="#" onclick="deleteProduct({{id}})">DELETE</a></td>
+            </tr>
+        {{/data}}
+        </table>
+    {{else}}
+    <div class="msg warning">No hay productos!</div>
+    {{/if}}
+</section>

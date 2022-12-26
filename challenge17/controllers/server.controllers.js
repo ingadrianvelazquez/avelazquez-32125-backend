@@ -70,7 +70,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/public'))
 
 //config database
-import DataBase from "../persistence/Database.js"
+import DataBase from "../persistence/DataBase.js"
 //const mysqlDB = new DataBase(mysqlKnex, tables.mysql)
 //const sqlite3DB = new DataBase(sqlite3Knex, tables.sqlite3)
 const sqlite3DBProd = new DataBase(sqlite3Knex, tables.prod)

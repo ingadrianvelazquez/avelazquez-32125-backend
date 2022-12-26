@@ -11,7 +11,7 @@ const args = yargs
 
 //server
 import express from 'express'
-const PORT = args.port
+const PORT = process.env.PORT || args.port
 const MODE = args.mode
 import * as OS from 'os'
 const numCPUs = OS.cpus().length

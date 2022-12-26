@@ -4,12 +4,17 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge16
+  cd avelazquez-32125-backend/challenge17
   npm i
-  nodemon server.js --port 8080
+  node server.js --port 8080
 ```
 
 ## Changelog / Desafíos realizados
+
+`Desafío #17: Desplegar nuestro proyecto en la nube`
+
+- Basado en el proyecto que venimos ampliando, subimos este a RailWay.app
+
 
 `Desafío #16: Loggers, GZip y Análisis de Performance`
 

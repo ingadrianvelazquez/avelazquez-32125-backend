@@ -1,0 +1,17 @@
+<section class="listado">
+    {{#if data }}
+    {{#data}}
+    <div class="message">
+        <div class="avatar">
+            <img src="{{author.avatar}}" title="{{author.alias}}" alt="{{author.alias}}" />
+        </div>
+        <div class="author">{{author.alias}}</div>
+        <div class="date">{{date}}</div>
+        <div class="text">{{msg}}</div>
+        <div class="clear"></div>
+    </div>
+    {{/data}}
+    {{else}}
+    <div class="msg warning">No hay mensajes!</div>
+    {{/if}}
+</section>

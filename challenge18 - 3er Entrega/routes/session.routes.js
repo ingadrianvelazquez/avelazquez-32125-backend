@@ -3,15 +3,21 @@ import passport from 'passport'
 export const sessionRouter = Router()
 import { loggerConsole } from '../controllers/server.controllers.js'
 
-let sessionActive = undefined
+import UserDaoMongoDB from '../daos/UserDaoMongoDB.js'
+const user = new UserDaoMongoDB();
 
-sessionRouter.get('/', (req, res, next) => {
+let sessionActive = undefined
+export let actualUser = ''
+
+sessionRouter.get('/', async (req, res, next) => {
     loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
     // I don't use middleware to avoid wasting more time with hbs
     if (req.isAuthenticated()) {
         sessionActive = true
         req.session.loggedin = true
-        res.render('index.hbs', { username: req.session.passport.user.username })
+        actualUser = req.session.passport.user.username
+        const datos = await user.getLeanByKeyValue('user', actualUser)
+        res.render('index.hbs', { username: req.session.passport.user.username, datos: datos })
     } else {
         sessionActive = sessionActive === true ? false : undefined
         res.render('login.hbs', sessionActive !== undefined && !sessionActive ? { msgError: 'Session Expired' } : '')

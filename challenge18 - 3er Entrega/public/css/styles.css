@@ -38,6 +38,33 @@ body {
     margin: 15px auto;
 }
 
+.carrito-centrado {
+    max-width: 1920px;
+    width: 78%;
+    padding: 1%;
+    margin: 15px auto;
+}
+
+.carrito-centrado>section {
+    max-width: 1920px;
+}
+
+.carrito-centrado>section section {
+    border: 0;
+    box-shadow: none;
+}
+
+.totalCarrito span {
+    font-size: 1.25em;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.totalCarrito form {
+    display: inline-block;
+}
+
 .clear {
     clear: both;
 }
@@ -119,6 +146,7 @@ form>a:hover {
     font-weight: bold;
 }
 
+input[type=tel],
 input[type=text],
 input[type=number],
 input[type=password],
@@ -133,7 +161,7 @@ input[type=email] {
 
 nav a,
 button,
-header .logout a,
+header .logout>a,
 input[type=submit] {
     border-radius: 15px;
     background: #29afd5;
@@ -151,10 +179,63 @@ input[type=submit] {
 
 nav a:hover,
 button:hover,
-header .logout a:hover,
+header .logout>a:hover,
 input[type=submit]:hover {
     background: white;
     color: #29afd5;
+}
+
+header .logout .menu,
+header .logout .avatar,
+header .logout .avatar a {
+    display: inline-block;
+}
+
+header .logout .avatar a {
+    position: relative;
+    padding: 0 5px;
+    top: 10px;
+}
+
+header .logout .avatar a .personaldata {
+    display: none;
+    position: absolute;
+    top: 40px;
+    border: 1px solid #dadada;
+    background: white;
+    padding: 10px;
+    right: 0;
+    color: #333;
+    min-width: 160px;
+    z-index: 99999;
+}
+
+header .logout .avatar a .personaldata label {
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+header .logout .avatar a .personaldata p {
+    margin: 5px 0 10px 0;
+}
+
+header .logout .avatar a img {
+    border-radius: 50%;
+}
+
+header .logout .avatar a:hover .personaldata {
+    display: inline-block;
+}
+
+header .logout .menu a {
+    color: white;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+header .logout .menu a:hover {
+    border: 1px solid white;
 }
 
 nav {
@@ -206,6 +287,7 @@ section table tr td {
     padding: 8px;
 }
 
+.msgCart,
 .message {
     background: #e1ffc7;
     border-radius: 8px;
@@ -213,6 +295,11 @@ section table tr td {
     padding: 10px;
     margin: 10px;
     text-align: left;
+}
+
+.msgCart {
+    text-align: center;
+    border: 1px solid #155724;
 }
 
 .message .avatar img {

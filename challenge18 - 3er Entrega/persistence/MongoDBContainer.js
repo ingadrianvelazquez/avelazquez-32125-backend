@@ -85,4 +85,32 @@ export class MongoDBContainer {
         return { 'error': 0, 'description': `Delete ALL on ${this.tableModel.collection.collectionName} Successful` }
     }
 
+    getLeanById = async (id) => {
+        let ret = { 'error': 2, 'description': `Element ID ${id} on ${this.tableModel.collection.collectionName} Not Found` }
+        let element = {}
+        await this.tableModel.find({ _id: id }).lean()
+            .then((row) => {
+                element = row
+            }).catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
+            .finally(() => { })
+        if (element)
+            ret = element[0]
+        return ret
+    }
+
+    getLeanByKeyValue = async (key, value) => {
+        let ret = { 'error': 2, 'description': `Key ${key} = Value ${value} ON ${this.tableModel.collection.collectionName} Not Found` }
+        let element = {}
+        await this.tableModel.find({ [key]: value }).lean()
+            .then((row) => {
+                element = row
+            }).catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
+            .finally(() => { })
+        if (element)
+            ret = element[0]
+        return ret
+    }
+
+
+
 }

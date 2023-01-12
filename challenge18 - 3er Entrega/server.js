@@ -4,10 +4,18 @@ import { fakerRouter } from './routes/faker.routes.js'
 import { sessionRouter } from './routes/session.routes.js'
 import { infoRouter } from './routes/info.routes.js'
 import { randomRouter } from './routes/random.routes.js'
+import { productRouter } from './routes/product.routes.js'
+import { myCartRouter } from './routes/mycart.routes.js'
+import { cartRouter } from './routes/cart.routes.js'
+import { onlyAdmin } from './utils/validations.js'
 import cluster from 'cluster'
 
 app.use('/api/products-test', fakerRouter)
+//app.use('/api/products', onlyAdmin, productRouter)
+app.use('/api/products', productRouter)
 app.use('/api/randoms', randomRouter)
+app.use('/api/cart', cartRouter)
+app.use('/mycart', myCartRouter)
 app.use('/info', infoRouter)
 app.use('/', sessionRouter)
 //default

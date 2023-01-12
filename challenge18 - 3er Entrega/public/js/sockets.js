@@ -45,18 +45,21 @@ buttonMsgRandom.addEventListener('click', e => {
 const buttonProd = document.querySelector('#btnProd')
 buttonProd.addEventListener('click', e => {
     e.preventDefault()
-    const titleInput = document.querySelector('#title').value
+    const titleInput = document.querySelector('#name').value
+    const descInput = document.querySelector('#desc').value
+    const codeInput = document.querySelector('#code').value
+    const thumbInput = document.querySelector('#url').value
     const priceInput = document.querySelector('#price').value
-    const thumbInput = document.querySelector('#thumbnail').value
-    socket.emit('addProduct', { title: titleInput, price: priceInput, thumbnail: thumbInput })
+    const stockInput = document.querySelector('#stock').value
+    socket.emit('addProduct', { name: titleInput, desc: descInput, code: codeInput, url: thumbInput, price: priceInput, stock: stockInput })
     document.querySelector('#catalogForm').reset()
 })
 
-const buttonRandom = document.querySelector('#btnRandom')
-buttonRandom.addEventListener('click', e => {
-    e.preventDefault()
-    socket.emit('addProductRandom')
-})
+// const buttonRandom = document.querySelector('#btnRandom')
+// buttonRandom.addEventListener('click', e => {
+//     e.preventDefault()
+//     socket.emit('addProductRandom')
+// })
 
 const renderTemplate = (themeFile, data) => {
     return fetch(`../templates/${themeFile}.hbs`)
@@ -85,7 +88,16 @@ socket.on('updateCompressRate', async compressRate => {
     document.querySelector('#compressRate').innerHTML = compressRate
 })
 
+socket.on('addToCartOK', async () => {
+    document.querySelector('#msgCart').innerHTML = '<div class=msgCart>Add to Cart Success!</div>'
+})
+
+
 const deleteProduct = (id) => {
     socket.emit('deleteProduct', { id: id })
 }
 
+const addToCart = (id) => {
+    const userEmail = document.querySelector('#username').value
+    socket.emit('addToCart', { userEmail: userEmail, id: id })
+}

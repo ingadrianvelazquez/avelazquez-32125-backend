@@ -12,6 +12,7 @@ import { User } from '../models/User.js'
 import UserDaoMongoDB from '../daos/UserDaoMongoDB.js'
 const users = new UserDaoMongoDB();
 
+import { sendMail } from './nodemailer.controller.js';
 import { loggerConsole } from './server.controllers.js'
 
 export function createBCryptHash(password) {
@@ -54,8 +55,9 @@ export const initPassport = () => {
                 msg = { msgError: 'User Already Exists' }
             } else {
                 loggerConsole.info('Successfully SignUp User')
-                newUser = new User(username, createBCryptHash(password))
+                newUser = new User(username, createBCryptHash(password), req.body.fullname, req.body.address, req.body.age, req.body.phone, req.body.avatar)
                 users.save(newUser)
+                sendMail(process.env.SUBJECT_REGISTRATION, req.body)
             }
             return done(null, newUser, msg)
         })

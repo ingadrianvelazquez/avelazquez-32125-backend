@@ -3,6 +3,24 @@
         Welcome <strong>{{username}}</strong>
     </div>
     <div class="logout">
+        <div class="menu">
+            <a href="mycart">My Cart</a>
+        </div>
+        <div class="avatar">
+            <a href="#">
+                <img width=32 src="{{datos.avatar}}" alt="{{datos.fullname}}"></td>
+                <div class="personaldata">
+                    <label>Full Name</label>
+                    <p>{{datos.fullname}}<br><small>{{datos.age}} years</small></p>
+                    <label>Email</label>
+                    <p>{{datos.username}}</p>
+                    <label>Address</label>
+                    <p>{{datos.address}}</p>
+                    <label>Phone</label>
+                    <p>{{datos.phone}}</p>
+                </div>
+            </a>
+        </div>
         <a href="logout">Logout</a>
     </div>
     <div class="clear"></div>
@@ -12,11 +30,21 @@
     <section>
         <h3>Product Form</h3>
         <form id="catalogForm">
-            <input type="text" name="title" id="title" required placeholder="title">
-            <input type="text" name="price" id="price" required placeholder="price">
-            <input type="text" name="thumbnail" id="thumbnail" required placeholder="url thumbnail">
+            <input type="hidden" name="username" id="username" value="{{username}}">
+
+            <input type="text" name="name" id="name" required placeholder="title">
+            <input type="text" name="desc" id="desc" required placeholder="description">
+            <input type="text" name="code" id="code" required placeholder="code">
+            <input type="text" name="url" id="url" required placeholder="url thumbnail">
+            <div class="unmedio">
+                <input type="number" name="price" id="price" required placeholder="price">
+            </div>
+            <div class="unmedio">
+                <input type="number" name="stock" id="stock" required placeholder="stock">
+            </div>
+            <div class="clear"></div>
             <button id="btnProd">ADD PRODUCT</button>
-            <button id="btnRandom">ADD RANDOM</button>
+            <!-- <button id="btnRandom">ADD RANDOM</button> -->
 
             {{#if msg}}
                 <div class="msg success">Product added!</div>
@@ -24,7 +52,7 @@
 
         </form>
     </section>
-
+    <div id="msgCart"></div>
     <div id="productList"></div>
 </div>
 

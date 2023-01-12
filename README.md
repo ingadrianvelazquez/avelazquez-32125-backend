@@ -4,12 +4,24 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge17
+  cd avelazquez-32125-backend/"challenge18 - 3er Entrega"
   npm i
   node server.js --port 8080
 ```
 
 ## Changelog / Desafíos realizados
+
+`Desafío #18: Tercer Entrega del Proyecto Final`
+
+### DEMO en [RailWay](https://avelazquez-32125-backend-production.up.railway.app/)
+
+- Basado en el proyecto que venimos ampliando, se implementa:
+  - ampliación de los datos de registración de los usuarios bajo passport
+  - menú con avatar, datos del usuario logueado y navegación al carrito
+  - vista de carrito, donde visualizar las productos agregados, el total y permitir hacer el pedido
+  - envío de correo vía **nodemailer** ante una nueva registración
+  - envío de correo y mensaje vía whatsapp vía **twilio** ante un nuevo pedido registrado
+
 
 `Desafío #17: Desplegar nuestro proyecto en la nube`
 

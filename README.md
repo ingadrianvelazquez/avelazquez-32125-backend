@@ -4,12 +4,21 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/"challenge18 - 3er Entrega"
+  cd avelazquez-32125-backend/challenge19
   npm i
   node server.js --port 8080
 ```
 
 ## Changelog / Desafíos realizados
+
+`Desafío #19: Dividir en capas nuestro proyecto`
+
+- Basado en la entrega #16 (*Loggers, GZip y Análisis de Performance*) se solicita dividir apropiadamente:
+  - las capas de ruteo [***routes***]
+  - los controladores [***controllers***]
+  - lógica / modelo de negocio [***models***]
+  - la capa de persistencia [***persistence***]
+
 
 `Desafío #18: Tercer Entrega del Proyecto Final`
 

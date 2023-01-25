@@ -1,0 +1,14 @@
+<div class="unmedio-centrado">
+    <div class="alert alert-ok">
+        <p><i>Logout Success.</i></p>
+        <p>See ya later <strong>{{username}}</strong></p>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<script>
+    window.setTimeout(function(){
+        window.location.href = "/";
+    }, {{timeoutRefresh}});
+</script>

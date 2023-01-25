@@ -1,0 +1,107 @@
+###################
+###   SESSION   ###
+###################
+
+### POST SIGNUP
+POST http://localhost:8081/signup/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "willy@test.com",
+    "password": "AlgoS1mpl3Ñ"
+}
+
+### POST LOGIN ERROR
+POST http://localhost:8081/login/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "willy@test.com",
+    "password": "AlgoS1mpl3Ñ"
+}
+
+### POST LOGIN OK
+POST http://localhost:8081/login/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "willy@test.com",
+    "password": "wonka"
+}
+
+### GET INFO
+GET http://localhost:8081/info/ HTTP/1.1
+Content-Type: application/json
+
+### GET RANDOM NUMBERS
+GET http://localhost:8081/api/randoms/10 HTTP/1.1
+Content-Type: application/json
+
+
+################
+###   CART   ###
+################
+
+### GET CART BY ID
+GET http://localhost:8081/api/cart/x6rW3RBBeSLqfs0sIveh/products HTTP/1.1
+
+### DELETE CART BY ID
+DELETE http://localhost:8081/api/cart/fxUPm3dFHt1yp5Tqhcbf HTTP/1.1
+
+### POST ADD CART
+POST http://localhost:8081/api/cart/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "products": []
+}
+
+### POST ADD PRODUCT TO CART
+POST http://localhost:8081/api/cart/x6rW3RBBeSLqfs0sIveh/products HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_prod": "i7CK3PkDghLYV6UjFRVL"
+}
+
+### DELETE PRODUCT ON CART BY ID
+DELETE http://localhost:8081/api/cart/x6rW3RBBeSLqfs0sIveh/products/i7CK3PkDghLYV6UjFRVL HTTP/1.1
+
+
+####################
+###   PRODUCTS   ###
+####################
+
+### GET ALL PRODUCTS
+GET http://localhost:8081/api/products/ HTTP/1.1
+
+### GET PRODUCT BY ID
+GET http://localhost:8081/api/products/i7CK3PkDghLYV6UjFRVL HTTP/1.1
+
+### DELETE PRODUCT BY ID
+DELETE http://localhost:8081/api/products/CXRQyHlxjbQ0FvcZKHee HTTP/1.1
+Authorization: admin
+
+### POST ADD PRODUCT
+POST http://localhost:8081/api/products/ HTTP/1.1
+Content-Type: application/json
+Authorization: admin
+
+{
+    "name": "Tolkien Deluxe Pack",
+    "desc": "The Hobbit + Lord of the Ring Trilogy",
+    "code": "",
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkmyemEh2SytB5TscqjAn5rS6vfrvODzdkOQ&usqp=CAU",
+    "price": "149.99",
+    "stock": "980"
+}
+
+### PUT UPDATE PRODUCT
+PUT http://localhost:8081/api/products/i7CK3PkDghLYV6UjFRVL HTTP/1.1
+Content-Type: application/json
+Authorization: admin
+
+{
+    "name": "Tolkien Deluxe Edition",
+    "stock": "984"
+}

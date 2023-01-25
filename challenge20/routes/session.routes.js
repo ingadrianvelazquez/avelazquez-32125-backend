@@ -2,37 +2,14 @@ import Router from 'express'
 import passport from 'passport'
 export const sessionRouter = Router()
 import { loggerConsole } from '../controllers/server.controllers.js'
+import { sessionControllerLogin, sessionControllerLogout } from '../controllers/session.controllers.js'
 
-import UserDaoMongoDB from '../daos/user/UserDaoMongoDB.js'
-const user = new UserDaoMongoDB();
+import UserDaoFactory from '../daos/user/UserDaoFactory.js'
+const user = UserDaoFactory.getDaoSource();
 
-let sessionActive = undefined
-export let actualUser = ''
+sessionRouter.get('/', sessionControllerLogin)
 
-sessionRouter.get('/', async (req, res, next) => {
-    loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
-    // I don't use middleware to avoid wasting more time with hbs
-    if (req.isAuthenticated()) {
-        sessionActive = true
-        req.session.loggedin = true
-        actualUser = req.session.passport.user.username
-        const datos = await user.getLeanByKeyValue('user', actualUser)
-        res.render('index.hbs', { username: req.session.passport.user.username, datos: datos })
-    } else {
-        sessionActive = sessionActive === true ? false : undefined
-        res.render('login.hbs', sessionActive !== undefined && !sessionActive ? { msgError: 'Session Expired' } : '')
-    }
-})
-
-sessionRouter.get('/logout', (req, res) => {
-    loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
-    const username = req.session.user
-    req.session.destroy(err => {
-        if (err) return res.send(err)
-        sessionActive = false
-        res.render('logout.hbs', { username: username, timeoutRefresh: 3000 })  //3 seconds
-    })
-})
+sessionRouter.get('/logout', sessionControllerLogout)
 
 sessionRouter.get('/login', (req, res) => {
     loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
@@ -43,19 +20,6 @@ sessionRouter.get('/login-error', (req, res) => {
     loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
     res.render('login-error.hbs')
 })
-
-// sessionRouter.post('/login', (req, res) => {
-//     loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })
-//     const { username, password } = req.body
-//     if (username != process.env.TESTING_USER) {
-//         res.render('login.hbs', { msgError: 'Wrong Credentials' })
-//     } else {
-//         req.session.user = username
-//         req.session.loggedin = true
-//         sessionActive = true
-//         res.redirect('/')
-//     }
-// })
 
 sessionRouter.post('/login', passport.authenticate('login', {
     successRedirect: '/',

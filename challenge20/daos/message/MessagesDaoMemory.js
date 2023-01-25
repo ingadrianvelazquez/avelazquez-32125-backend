@@ -1,4 +1,6 @@
-import { MemoryContainer } from '../../persistence/MemoryContainer.js'
+import MemoryContainer from '../../persistence/MemoryContainer.js'
+
+let instance = null
 
 export default class MessagesDaoMemory extends MemoryContainer {
     constructor() {
@@ -6,5 +8,10 @@ export default class MessagesDaoMemory extends MemoryContainer {
     }
     async disconnect() {
         //silence is gold
+    }
+    static getInstance = () => {
+        if (!instance)
+            instance = new MessagesDaoMemory()
+        return instance
     }
 }

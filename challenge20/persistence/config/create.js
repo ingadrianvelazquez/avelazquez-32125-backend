@@ -6,6 +6,7 @@ const dropTableIfExists = async (knex, table) => {
 
 export const createTableProducts = async (knex, table) => {
     await dropTableIfExists(knex, table)
+
     await knex.schema.createTable(table, structure => {
         structure.increments('id')
         structure.string('title')
@@ -19,6 +20,7 @@ export const createTableProducts = async (knex, table) => {
 
 export const createTableMessages = async (knex, table) => {
     await dropTableIfExists(knex, table)
+    
     await knex.schema.createTable(table, structure => {
         structure.increments('id')
         structure.string('email')

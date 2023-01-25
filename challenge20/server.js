@@ -10,6 +10,13 @@ import { cartRouter } from './routes/cart.routes.js'
 import { onlyAdmin } from './utils/validations.js'
 import cluster from 'cluster'
 
+// passport
+import passport from 'passport'
+import { initPassport } from './controllers/passport.controllers.js'
+initPassport()
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use('/api/products-test', fakerRouter)
 //app.use('/api/products', onlyAdmin, productRouter)
 app.use('/api/products', productRouter)

@@ -8,12 +8,12 @@ import mongoose from 'mongoose'
 import { mongoConn } from '../persistence/config/connection.js'
 mongoose.connect(mongoConn.url, mongoConn.options)
 
-import { User } from '../dtos/User.js'
-import UserDaoMongoDB from '../daos/user/UserDaoMongoDB.js'
-const users = new UserDaoMongoDB();
-
 import { sendMail } from './nodemailer.controller.js';
 import { loggerConsole } from './server.controllers.js'
+
+import UserDto from '../dtos/UserDto.js'
+import UserDaoFactory from '../daos/user/UserDaoFactory.js'
+const users = UserDaoFactory.getDaoSource();
 
 export function createBCryptHash(password) {
     return bCrypt.hashSync(
@@ -55,7 +55,7 @@ export const initPassport = () => {
                 msg = { msgError: 'User Already Exists' }
             } else {
                 loggerConsole.info('Successfully SignUp User')
-                newUser = new User(username, createBCryptHash(password), req.body.fullname, req.body.address, req.body.age, req.body.phone, req.body.avatar)
+                newUser = new UserDto(username, createBCryptHash(password), req.body.fullname, req.body.address, req.body.age, req.body.phone, req.body.avatar)
                 users.save(newUser)
                 sendMail(process.env.SUBJECT_REGISTRATION, req.body)
             }

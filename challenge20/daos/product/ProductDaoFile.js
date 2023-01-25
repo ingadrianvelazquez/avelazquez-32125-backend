@@ -1,4 +1,6 @@
-import FileContainer from '../../persistence/FileContainer'
+import FileContainer from '../../persistence/FileContainer.js'
+
+let instance = null
 
 export default class ProductDaoFile extends FileContainer {
     constructor() {
@@ -6,5 +8,10 @@ export default class ProductDaoFile extends FileContainer {
     }
     async disconnect() {
         //silence is gold
+    }
+    static getInstance = () => {
+        if (!instance)
+            instance = new ProductDaoFile()
+        return instance
     }
 }

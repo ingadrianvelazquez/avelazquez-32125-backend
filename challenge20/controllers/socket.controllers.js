@@ -1,15 +1,19 @@
-import { io, msgDB, sqlite3DBProd } from './server.controllers.js'
-import { getRandomProduct, getRandomMessage } from '../routes/faker.routes.js'
+import { io, sqlite3DBProd } from './server.controllers.js'
+import { getRandomProduct, getRandomMessage } from '../controllers/faker.controllers.js'
 import { getNormalizedData } from './normalizr.controllers.js'
-import Message from '../dtos/Message.js'
+
+// messages container
+import MessageDto from '../dtos/MessageDto.js'
+import MessagesDaoFactory from "../daos/message/MessagesDaoFactory.js"
+const msgDB = MessagesDaoFactory.getDaoSource()
 
 //refactor?
-import ProductDaoMongoDB from '../daos/product/ProductDaoMongoDB.js'
-const catalog = new ProductDaoMongoDB();
+import ProductDaoFactory from '../daos/product/ProductDaoFactory.js'
+const catalog = ProductDaoFactory.getDaoSource();
 
-import { Cart } from '../dtos/Cart.js'
-import CartDaoMongoDB from '../daos/cart/CartDaoMongoDB.js'
-const cart = new CartDaoMongoDB();
+import CartDto from '../dtos/CartDto.js'
+import CartDaoFactory from '../daos/cart/CartDaoFactory.js'
+const cart = CartDaoFactory.getDaoSource();
 
 export let actualCart = ''
 
@@ -24,8 +28,8 @@ export const socketController = async socket => {
     socket.emit('updateCompressRate', normalizedData.rate)
 
     socket.on('sendMessage', async data => {
-        const { email, name, surname, age, alias, avatar, msg } = data;
-        const msgElement = new Message(email, name, surname, age, alias, avatar, msg)
+        //const { email, name, surname, age, alias, avatar, msg } = data;
+        const msgElement = new MessageDto(data)
         await msgDB.save(msgElement)
         const listMsgs = await msgDB.getAll()
         io.sockets.emit('updateMessages', listMsgs)
@@ -68,7 +72,7 @@ export const socketController = async socket => {
         const searchCart = await cart.getByKeyValue('user', userEmail)
         actualCart = searchCart == undefined ? '' : searchCart._id.toString().replace('new ObjectId("', '').replace('")', '')
         if (actualCart == '') {
-            const newCart = new Cart(userEmail, prod)
+            const newCart = new CartDto(userEmail, prod)
             actualCart = await cart.save(newCart)
         } else {
             const currentCart = await cart.getById(actualCart)

@@ -12,11 +12,3 @@ export const CartSchema = new mongoose.Schema(
 )
 
 export const cartModel = mongoose.model(cartCollection, CartSchema)
-
-export class Cart {
-    constructor(user, products) {
-        this.timestamp = new Date(Date.now()).toLocaleString()
-        this.user = user || ''
-        this.products = products || []
-    }
-}

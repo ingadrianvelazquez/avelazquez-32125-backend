@@ -4,12 +4,22 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge19
+  cd avelazquez-32125-backend/challenge20
   npm i
-  node server.js --port 8080
+  node server.js --port 8080 --source mongo
 ```
 
 ## Changelog / Desafíos realizados
+
+`Desafío #20: Mejorar la arquitectura de nuestra API`
+
+- Basado en la entrega del proyecto se divide el código aplicando:
+  - DAO :: Data Access Object
+  - DTO :: Data Transfer Object
+  - Patrón Singleton
+  - Patrón Factory
+  - Patrón Repository
+
 
 `Desafío #19: Dividir en capas nuestro proyecto`
 

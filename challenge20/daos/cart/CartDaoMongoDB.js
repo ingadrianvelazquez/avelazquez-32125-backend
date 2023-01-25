@@ -1,5 +1,7 @@
 import { MongoDBContainer } from '../../persistence/MongoDBContainer.js'
-import { cartModel } from '../../dtos/Cart.js'
+import { cartModel } from '../../models/Cart.js'
+
+let instance = null
 
 export default class CartDaoMongoDB extends MongoDBContainer {
     constructor() {
@@ -7,5 +9,10 @@ export default class CartDaoMongoDB extends MongoDBContainer {
     }
     async disconnect() {
         //silence is gold
+    }
+    static getInstance = () => {
+        if (!instance)
+            instance = new CartDaoMongoDB()
+        return instance
     }
 }

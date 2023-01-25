@@ -1,22 +1,13 @@
 import Router from 'express'
 export const productRouter = Router()
 
-import { Product } from '../dtos/Product.js'
-import ProductDaoMongoDB from '../daos/product/ProductDaoMongoDB.js'
-const catalog = new ProductDaoMongoDB();
+import { productControllerGet, productControllerCreate } from '../controllers/product.controller.js'
+import ProductDaoFactory from '../daos/product/ProductDaoFactory.js'
+const catalog = ProductDaoFactory.getDaoSource();
 
-productRouter.get('/:id?', async (req, res) => {
-    if (req.params.id)
-        res.json(await catalog.getById(req.params.id))
-    else
-        res.json(await catalog.getAll())
-})
+productRouter.get('/:id?', productControllerGet)
 
-productRouter.post('/', async (req, res) => {
-    const data = req.body
-    const prod = new Product(data.name, data.desc, data.code, data.url, data.price, data.stock)
-    res.json(await catalog.save(prod))
-})
+productRouter.post('/', productControllerCreate)
 
 productRouter.put('/:id', async (req, res) => {
     res.json(await catalog.update(req.params.id, req.body))

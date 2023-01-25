@@ -5,14 +5,15 @@ dotenv.config()
 import yargsImport from 'yargs/yargs'
 const yargs = yargsImport(process.argv.slice(2))
 const args = yargs
-    .default({ port: process.env.PORT, mode: 'FORK' })
-    .alias({ p: 'port', m: 'mode' })
+    .default({ port: process.env.PORT, mode: 'FORK', source: 'mem' })
+    .alias({ p: 'port', m: 'mode', s: 'source' })
     .argv
 
 //server
 import express from 'express'
 const PORT = process.env.PORT || args.port
 const MODE = args.mode
+const DAOSOURCE = args.source
 import * as OS from 'os'
 const numCPUs = OS.cpus().length
 
@@ -33,9 +34,6 @@ import { Server as IOServer } from 'socket.io'
 // session
 import session from 'express-session'
 import { configSession } from './session.controllers.js'
-// passport
-import passport from 'passport'
-import { initPassport } from './passport.controllers.js'
 
 //database
 //import { mysqlConn, sqlite3Conn } from '../persistence/config/connection.js'
@@ -76,10 +74,6 @@ import DataBase from "../persistence/DataBase.js"
 const sqlite3DBProd = new DataBase(sqlite3Knex, tables.prod)
 const sqlite3DBMsg = new DataBase(sqlite3Knex, tables.msg)
 
-// messages container
-import MessagesDaoFile from "../daos/message/MessagesDaoFile.js"
-const msgDB = new MessagesDaoFile()
-
 //config HBS
 app.engine('hbs', hbs.engine({
     extname: '.hbs',
@@ -94,12 +88,8 @@ app.set('view engine', 'hbs')
 const uniqueSession = session(configSession)
 app.use(uniqueSession)
 
-initPassport()
-app.use(passport.initialize())
-app.use(passport.session())
-
 // convert a connect middleware to a Socket.IO middleware
 const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
 io.use(wrap(uniqueSession));
 
-export { PORT, app, httpServer, io, msgDB, sqlite3Knex, tables, sqlite3DBProd, sqlite3DBMsg, MODE, numCPUs, loggerConsole, loggerWarning, loggerError }
+export { PORT, DAOSOURCE, app, httpServer, io, sqlite3Knex, tables, sqlite3DBProd, sqlite3DBMsg, MODE, numCPUs, loggerConsole, loggerWarning, loggerError }

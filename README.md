@@ -4,12 +4,21 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge20
+  cd avelazquez-32125-backend/challenge21
   npm i
-  node server.js --port 8080 --source mongo
+  npm run axios   --> pruebas cliente http
+  npm test        --> pruebas sobre Mocha
 ```
 
 ## Changelog / Desafíos realizados
+
+`Desafío #21: Testeamos nuestra API Rest`
+
+- Basado en la entrega del proyecto donde aplicamos capas y MVC, realizaremos pruebas de la API de productos mediante
+  - cliente HTTP a traves de AXIOS
+  - framework Mocha + Chia + Supertest
+- **_[extra]_** se adjuntan capturas de las pruebas realizadas
+
 
 `Desafío #20: Mejorar la arquitectura de nuestra API`
 

@@ -76,10 +76,10 @@ DELETE http://localhost:8081/api/cart/x6rW3RBBeSLqfs0sIveh/products/i7CK3PkDghLY
 GET http://localhost:8081/api/products/ HTTP/1.1
 
 ### GET PRODUCT BY ID
-GET http://localhost:8081/api/products/i7CK3PkDghLYV6UjFRVL HTTP/1.1
+GET http://localhost:8081/api/products/63bf08fe6a2bacbf79c50c84 HTTP/1.1
 
 ### DELETE PRODUCT BY ID
-DELETE http://localhost:8081/api/products/CXRQyHlxjbQ0FvcZKHee HTTP/1.1
+DELETE http://localhost:8081/api/products/99b999fe6a2bacbf79c50c84 HTTP/1.1
 Authorization: admin
 
 ### POST ADD PRODUCT
@@ -97,7 +97,7 @@ Authorization: admin
 }
 
 ### PUT UPDATE PRODUCT
-PUT http://localhost:8081/api/products/i7CK3PkDghLYV6UjFRVL HTTP/1.1
+PUT http://localhost:8081/api/products/63d9fa42ce6a0d50cf1348b4 HTTP/1.1
 Content-Type: application/json
 Authorization: admin
 

@@ -52,4 +52,6 @@ if (MODE == 'CLUSTER' && cluster.isPrimary) {
     //listener
     httpServer.listen(PORT, () => loggerConsole.info(`Server UP on ${PORT} with processID: ${process.pid}`));
     io.on('connection', socket => socketController(socket))
+
 }
+export { httpServer }

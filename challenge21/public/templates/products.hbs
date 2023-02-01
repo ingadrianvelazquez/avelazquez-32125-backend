@@ -1,0 +1,26 @@
+<section class="listado">
+    {{#if data }}
+        <table>
+            <tr>
+                <th>Thumb</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        {{#data}}
+            <tr>
+                <td><img width=64 src="{{url}}" alt="{{name}}"></td>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+                <td>
+                    <a href="#" onclick="deleteProduct('{{_id}}')">DELETE</a>
+                    <br>
+                    <a href="#" onclick="addToCart('{{_id}}')">ADD TO CART</a>
+                </td>
+            </tr>
+        {{/data}}
+        </table>
+    {{else}}
+    <div class="msg warning">No hay productos!</div>
+    {{/if}}
+</section>

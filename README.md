@@ -4,13 +4,17 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge21
+  cd avelazquez-32125-backend/challenge22
   npm i
-  npm run axios   --> pruebas cliente http
-  npm test        --> pruebas sobre Mocha
+  npm start
 ```
 
 ## Changelog / Desafíos realizados
+
+`Desafío #22: Reformar para usar GraphQL`
+
+- Basado en la entrega del proyecto de servidor API RESTful se modifica la capa de routeo para operar a través del lenguaje GraphQL
+
 
 `Desafío #21: Testeamos nuestra API Rest`
 

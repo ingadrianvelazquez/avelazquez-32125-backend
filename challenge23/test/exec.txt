@@ -1,0 +1,80 @@
+>nodemon server.js --port 8083 --mode CLUSTER
+    [nodemon] starting `node server.js --port 8083 --mode CLUSTER`
+    Threads: 8
+    Server UP on 8083 with processID: 1988
+    Server UP on 8083 with processID: 8900
+    Server UP on 8083 with processID: 580
+    Server UP on 8083 with processID: 22600
+    Server UP on 8083 with processID: 23500
+    Server UP on 8083 with processID: 18048
+    Server UP on 8083 with processID: 20732
+    Server UP on 8083 with processID: 17472
+
+>nodemon server.js --port 8083 --mode FORK   
+    [nodemon] starting `node server.js --port 8083 --mode FORK`
+    Server UP on 8083 with processID: 8048
+
+>nodemon server.js --port 8083            
+    [nodemon] starting `node server.js --port 8083`
+    Server UP on 8083 with processID: 26644
+
+
+>forever --version
+    v4.0.3
+    (node:14552) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+    (Use `node --trace-warnings ...` to show where the warning was created)
+---> https://github.com/foreversd/forever/issues/1077
+El problema fue reportado y aun continua abierto, indican downgrade a node 12
+
+
+>forever start server.js --port 8086
+>forever list
+    data:        uid  command                            script                                                                   forever pid   id logfile                               uptime
+    data:    [0] _5UF "C:\Program Files\nodejs\node.exe" D:\coderhouse\avelazquez-32125-backend\challenge15\server.js             20548   2036     C:\Users\avelazquez\.forever\_5UF.log STOPPED
+    data:    [1] gACu "C:\Program Files\nodejs\node.exe" D:\coderhouse\avelazquez-32125-backend\challenge15\server.js --port 8086 12672   14280    C:\Users\avelazquez\.forever\gACu.log 0:0:0:43.596  
+
+>forever stop 14280
+>forever list
+    data:        uid  command                            script                                                                   forever pid   id logfile                               uptime
+    data:    [0] _5UF "C:\Program Files\nodejs\node.exe" D:\coderhouse\avelazquez-32125-backend\challenge15\server.js             20548   2036     C:\Users\avelazquez\.forever\_5UF.log STOPPED
+
+
+>pm2 start server.js --name="Server7" --watch -- --port 8087
+    [PM2] Starting D:\coderhouse\avelazquez-32125-backend\challenge15\server.js in fork_mode (1 instance)
+    [PM2] Done.
+
+>pm2 start server.js --name="Server10" --watch -i max -- --port 8089         
+    [PM2] Spawning PM2 daemon with pm2_home=C:\Users\avelazquez\.pm2
+    [PM2] PM2 Successfully daemonized
+    [PM2] Starting D:\coderhouse\avelazquez-32125-backend\challenge15\server.js in cluster_mode (0 instance)
+    [PM2] Done.
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0   │ Server10    │ default     │ 1.0.0   │ cluster │ 16080    │ 30s    │ 0    │ online    │ 0%       │ 29.9mb   │ ave… │ enabled  │
+│ 1   │ Server10    │ default     │ 1.0.0   │ cluster │ 8052     │ 30s    │ 0    │ online    │ 0%       │ 29.9mb   │ ave… │ enabled  │
+│ 2   │ Server10    │ default     │ 1.0.0   │ cluster │ 19848    │ 30s    │ 0    │ online    │ 0%       │ 29.6mb   │ ave… │ enabled  │
+│ 3   │ Server10    │ default     │ 1.0.0   │ cluster │ 24080    │ 29s    │ 0    │ online    │ 0%       │ 30.3mb   │ ave… │ enabled  │
+│ 4   │ Server10    │ default     │ 1.0.0   │ cluster │ 24428    │ 29s    │ 0    │ online    │ 0%       │ 30.0mb   │ ave… │ enabled  │
+│ 5   │ Server10    │ default     │ 1.0.0   │ cluster │ 23044    │ 28s    │ 0    │ online    │ 0%       │ 29.7mb   │ ave… │ enabled  │
+│ 6   │ Server10    │ default     │ 1.0.0   │ cluster │ 21188    │ 28s    │ 0    │ online    │ 0%       │ 30.1mb   │ ave… │ enabled  │
+│ 7   │ Server10    │ default     │ 1.0.0   │ cluster │ 7888     │ 27s    │ 0    │ online    │ 0%       │ 29.9mb   │ ave… │ enabled  │
+│ 8   │ Server7     │ default     │ 1.0.0   │ fork    │ 12744    │ 1s     │ 0    │ online    │ 51.6%    │ 33.6mb   │ ave… │ enabled  │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+
+>pm2 kill
+    [PM2] Applying action deleteProcessId on app [all](ids: [
+        0, 1, 2, 3, 4,
+        5, 6, 7, 8
+    ])
+    [PM2] [Server7](0) ✓
+    [PM2] [Server10](1) ✓
+    [PM2] [Server10](3) ✓
+    [PM2] [Server10](2) ✓
+    [PM2] [Server10](7) ✓
+    [PM2] [Server10](5) ✓
+    [PM2] [Server10](4) ✓
+    [PM2] [Server10](8) ✓
+    [PM2] [Server10](6) ✓
+    [PM2] [v] All Applications Stopped
+    [PM2] [v] PM2 Daemon Stopped

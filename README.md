@@ -4,12 +4,19 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge22
+  cd avelazquez-32125-backend/challenge23
   npm i
-  npm start
+  adonis serve --dev
 ```
 
 ## Changelog / Desafíos realizados
+
+`Desafío #23: Reformar para usar otro Framework`
+
+- Escogiendo ADONIS, se brinda API sobre productos, carrito, usuarios y mensajes tal como venimos trabajando
+- Se emplea para la implementación base MySQL
+- Se brinda archivo de pruebas REST sobre productos y carrito
+
 
 `Desafío #22: Reformar para usar GraphQL`
 

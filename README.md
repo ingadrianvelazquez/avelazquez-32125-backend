@@ -4,16 +4,22 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge23
-  npm i
-  adonis serve --dev
+  cd avelazquez-32125-backend/challenge24
+  deno run --alow-test server.ts
 ```
 
 ## Changelog / Desafíos realizados
 
+`Desafío #24: Servidor en DENO`
+
+- Levantando un servidor en DENO, sin aprender aún rutas ni demas temas, se realiza:
+- Un formulario donde ingresar nombre de colores en inglés, agregando estos a un array en memoria y,
+- Mostrarlos por consola según color traído desde el módulo *colors.ts*
+
+
 `Desafío #23: Reformar para usar otro Framework`
 
-- Escogiendo ADONIS, se brinda API sobre productos, carrito, usuarios y mensajes tal como venimos trabajando
+- Escogiendo ***ADONIS***, se brinda API sobre productos, carrito, usuarios y mensajes tal como venimos trabajando
 - Se emplea para la implementación base MySQL
 - Se brinda archivo de pruebas REST sobre productos y carrito
 

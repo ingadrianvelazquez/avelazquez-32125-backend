@@ -4,11 +4,19 @@
 
 ```bash
   git clone https://github.com/ingadrianvelazquez/avelazquez-32125-backend.git
-  cd avelazquez-32125-backend/challenge24
-  deno run --alow-test server.ts
+  cd avelazquez-32125-backend/"challenge25 - Entrega Final"
+  node server.js -p 8081 -m FORK -s mongo
+
+  node server.js --port 8081 --mode FORK --source mongo
 ```
 
 ## Changelog / Desafíos realizados
+
+`Desafío #25: Entrega del Proyecto Final`
+
+### DEMO en [RailWay](https://avelazquez-32125-backend-production.up.railway.app/)
+- **_[extra]_** se brindan las pruebas realizadas mediante la extension RestClient
+
 
 `Desafío #24: Servidor en DENO`
 

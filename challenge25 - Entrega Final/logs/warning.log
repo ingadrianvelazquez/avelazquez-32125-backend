@@ -1,0 +1,13 @@
+{"level":40,"time":1678104045522,"pid":20192,"hostname":"Notebook39","url":"/products/books","method":"GET"}
+{"level":40,"time":1678104091944,"pid":20192,"hostname":"Notebook39","url":"/products/category/books","method":"GET"}
+{"level":40,"time":1678104213779,"pid":27432,"hostname":"Notebook39","url":"/products/category/books","method":"GET"}
+{"level":40,"time":1678104362567,"pid":6664,"hostname":"Notebook39","url":"/products/category/books","method":"GET"}
+{"level":40,"time":1678104754102,"pid":21444,"hostname":"Notebook39","url":"/products/books","method":"GET"}
+{"level":40,"time":1678104885867,"pid":24084,"hostname":"Notebook39","url":"/products/css/styles.css","method":"GET"}
+{"level":40,"time":1678104886241,"pid":24084,"hostname":"Notebook39","url":"/products/img/favicon.png","method":"GET"}
+{"level":40,"time":1678104930104,"pid":24084,"hostname":"Notebook39","url":"/products/css/styles.css","method":"GET"}
+{"level":40,"time":1678104930590,"pid":24084,"hostname":"Notebook39","url":"/products/img/favicon.png","method":"GET"}
+{"level":40,"time":1678104937731,"pid":24084,"hostname":"Notebook39","url":"/products/css/styles.css","method":"GET"}
+{"level":40,"time":1678105002659,"pid":24084,"hostname":"Notebook39","url":"/products/css/styles.css","method":"GET"}
+{"level":40,"time":1678110043314,"pid":4944,"hostname":"Notebook39","url":"/api/chat/user/capitan.amarillo@gmail.com","method":"GET"}
+{"level":40,"time":1678110109917,"pid":22912,"hostname":"Notebook39","url":"/api/chat/user/capitan.amarillo@gmail.com","method":"GET"}

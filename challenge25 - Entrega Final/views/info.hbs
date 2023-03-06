@@ -1,0 +1,51 @@
+<header>
+    <div class="welcome">
+        Process INFO
+    </div>
+    <div class="logout">
+        <a href="login">Back</a>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<section class="info">
+    <h3>Details from Process INFO</h3>
+    <p>Arguments</p>
+    <pre>
+        {{#each processInfo.argv}}
+            {{this}}
+        {{/each}}
+    </pre>
+    <div class="untercio">
+        <p>S.O.</p>
+        <pre>{{processInfo.env.OS}}</pre>
+    </div>
+    <div class="untercio">
+        <p>Platform</p>
+        <pre>{{processInfo.platform}}</pre>
+    </div>
+    <div class="untercio">
+        <p>Cores/Threads</p>
+        <pre>{{numCPUs}}</pre>
+    </div>
+    <div class="clear"></div>
+    <div class="untercio">
+        <p>Process ID</p>
+        <pre>{{processInfo.pid}}</pre>
+    </div>
+    <div class="untercio">
+        <p>Node</p>
+        <pre>{{processInfo.version}}</pre>
+    </div>
+    <div class="untercio">
+        <p>Total memory reserved (RSS)</p>
+        <pre>{{processInfo.memoryUsage.rss}}</pre>
+    </div>
+    <div class="clear"></div>
+    <p>Exec Path</p>
+    <pre>{{processInfo.execPath}}</pre>
+    <p>Project Folder</p>
+    <pre>{{processInfo.cwd}}</pre>
+</section>
+
+<div class="clear"></div>

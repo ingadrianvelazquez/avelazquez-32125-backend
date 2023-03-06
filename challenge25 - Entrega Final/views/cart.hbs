@@ -1,0 +1,55 @@
+<header>
+    <div class="welcome">
+        Welcome <strong>{{username}}</strong>
+    </div>
+    <div class="logout">
+        <div class="menu">
+            <a href="/">Home</a>
+        </div>
+        <a href="logout">Logout</a>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<div class="carrito-centrado">
+    <section>
+        <h3>Products on MyCart</h3>
+        <div id="productList">
+            <section class="listado">
+            {{#if products}}
+                <table>
+                    <tr>
+                        <th>Thumb</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                {{#products}}
+                    <tr>
+                        <td><img width=32 src="{{url}}" alt="{{name}}"></td>
+                        <td>{{name}}</td>
+                        <td>{{price}}</td>
+                        <td>
+                            <a href="./mycart/delete/{{../idcart}}/products/{{_id}}" >REMOVE</a>
+                        </td>
+                    </tr>
+                {{/products}}
+                </table>
+            {{else}}
+                <div class="msg warning">No hay productos!</div>
+            {{/if}}
+            </section>
+            <div class="totalCarrito">
+                <label>Total Amount</label> <span>${{total}}</span>
+                <form method="post" action="mycart/send-order">
+                    <input type="hidden" name="idCart" value="{{idcart}}">
+                    {{#if total}}
+                    <input type="submit" value="Send The Order">
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="clear"></div>

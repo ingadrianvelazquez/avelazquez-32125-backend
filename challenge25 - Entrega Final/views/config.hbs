@@ -1,0 +1,44 @@
+<header>
+    <div class="welcome">
+        Welcome <strong>{{username}}</strong>
+    </div>
+    <div class="logout">
+        <div class="menu">
+            <a href="/">Home</a>
+        </div>
+        <a href="logout">Logout</a>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<section class="info">
+    <h3>Details from Process ENV</h3>
+    <p>MONGOSTORE_SECRET</p>
+    <pre>{{data.MONGOSTORE_SECRET}}</pre>
+    <p>MONGOSTORE_CONN</p>
+    <pre>{{data.MONGOSTORE_CONN}}</pre>
+    <p>NODEMAILER_EMAIL_FROM</p>
+    <pre>{{data.NODEMAILER_EMAIL_FROM}}</pre>
+    <p>NODEMAILER_EMAIL_PASS</p>
+    <pre>{{data.NODEMAILER_EMAIL_PASS}}</pre>
+    <p>NODEMAILER_EMAIL_TO</p>
+    <pre>{{data.NODEMAILER_EMAIL_TO}}</pre>
+    <p>SQLITE3_CLIENT</p>
+    <pre>{{data.SQLITE3_CLIENT}}</pre>
+    <p>SQLITE3_CONN_FILENAME</p>
+    <pre>{{data.SQLITE3_CONN_FILENAME}}</pre>
+    <p>SQLITE3_POOL_MAX</p>
+    <pre>{{data.SQLITE3_POOL_MAX}}</pre>
+    <p>SQLITE3_POOL_MIN</p>
+    <pre>{{data.SQLITE3_POOL_MIN}}</pre>
+    <p>SUBJECT_NEWORDER</p>
+    <pre>{{data.SUBJECT_NEWORDER}}</pre>
+    <p>SUBJECT_REGISTRATION</p>
+    <pre>{{data.SUBJECT_REGISTRATION}}</pre>
+    <p>TWILIO_ACCOUNT_SID</p>
+    <pre>{{data.TWILIO_ACCOUNT_SID}}</pre>
+    <p>TWILIO_AUTH_TOKEN</p>
+    <pre>{{data.TWILIO_AUTH_TOKEN}}</pre>
+</section>
+
+<div class="clear"></div>

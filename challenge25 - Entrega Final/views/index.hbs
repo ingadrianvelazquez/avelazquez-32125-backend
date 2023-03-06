@@ -1,0 +1,77 @@
+<header>
+    <div class="welcome">
+        Welcome <strong>{{username}}</strong>
+    </div>
+    <div class="logout">
+        <div class="menu">
+            <a href="config">Config</a>
+            <a href="mycart">My Cart</a>
+        </div>
+        <a href="logout">Logout</a>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<div class="unmedio">
+    <section>
+        <h3>Product Form</h3>
+        <form id="catalogForm">
+            <input type="hidden" name="username" id="username" value="{{username}}">
+
+            <input type="text" name="name" id="name" required placeholder="title">
+            <input type="text" name="desc" id="desc" required placeholder="description">
+            <input type="text" name="category" id="category" required placeholder="category">
+            <input type="text" name="url" id="url" required placeholder="url thumbnail">
+            <div class="unmedio">
+                <input type="number" name="price" id="price" required placeholder="price">
+            </div>
+            <div class="unmedio">
+                <input type="number" name="stock" id="stock" required placeholder="stock">
+            </div>
+            <div class="clear"></div>
+            <button id="btnProd">ADD PRODUCT</button>
+            <!-- <button id="btnRandom">ADD RANDOM</button> -->
+
+            {{#if msg}}
+                <div class="msg success">Product added!</div>
+            {{/if}}
+
+        </form>
+    </section>
+    <div id="msgCart"></div>
+    <div id="productList"></div>
+</div>
+
+<div class="unmedio">
+    <section>
+        <h3>WebChat - <i>[<span id=compressRate></span>% zip]</i></h3>
+        <form id="webchatForm">
+            <input type="email" name="email" id="email" required placeholder="email">
+            <div class="unmedio">
+                <input type="text" name="name" id="name" required placeholder="name">
+            </div>
+            <div class="unmedio">
+                <input type="text" name="surname" id="surname" required placeholder="surname">
+            </div>
+            <div class="clear"></div>
+            <div class="unmedio">
+                <input type="number" name="age" id="age" required placeholder="age">
+            </div>
+            <div class="unmedio">
+                <input type="text" name="alias" id="alias" required placeholder="alias">
+            </div>
+            <div class="clear"></div>
+            <input type="text" name="avatar" id="avatar" required placeholder="avatar">
+            <input type="text" name="message" id="message" required placeholder="message">
+            <button id="btnChat">SEND MESSAGE</button>
+            <button id="btnMsgRandom">SEND RANDOM</button>
+        </form>
+    </section>
+
+    <div id="messageList"></div>
+</div>
+
+<div class="clear"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js" referrerpolicy="no-referrer"></script>
+<script src="js/sockets.js"></script>

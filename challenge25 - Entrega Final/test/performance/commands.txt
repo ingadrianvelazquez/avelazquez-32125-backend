@@ -1,0 +1,43 @@
+node --prof server.js --port 8081
+
+----------
+
+artillery quick --count 50 -n 20 http://localhost:8081/info > test/performance/result_fork_info.txt
+
+----------
+
+autocannon -c 100 -d 20 http://localhost:8081/info
+
+    Running 20s test @ http://localhost:8081/info
+    100 connections
+
+    ┌─────────┬────────┬────────┬────────┬────────┬───────────┬──────────┬────────┐
+    │ Stat    │ 2.5%   │ 50%    │ 97.5%  │ 99%    │ Avg       │ Stdev    │ Max    │
+    ├─────────┼────────┼────────┼────────┼────────┼───────────┼──────────┼────────┤
+    │ Latency │ 361 ms │ 464 ms │ 693 ms │ 749 ms │ 479.67 ms │ 81.48 ms │ 823 ms │
+    └─────────┴────────┴────────┴────────┴────────┴───────────┴──────────┴────────┘
+    ┌───────────┬────────┬────────┬────────┬────────┬────────┬────────┬────────┐
+    │ Stat      │ 1%     │ 2.5%   │ 50%    │ 97.5%  │ Avg    │ Stdev  │ Min    │
+    ├───────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+    │ Req/Sec   │ 100    │ 100    │ 201    │ 276    │ 206.3  │ 43.1   │ 100    │
+    ├───────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+    │ Bytes/Sec │ 234 kB │ 234 kB │ 471 kB │ 646 kB │ 483 kB │ 101 kB │ 234 kB │
+    └───────────┴────────┴────────┴────────┴────────┴────────┴────────┴────────┘
+
+    Req/Bytes counts sampled once per second.
+    # of samples: 20
+
+    4k requests in 20.14s, 9.65 MB read
+
+----------
+
+node --inspect server.js --port 8081
+
+    autocannon -c 100 -d 20 http://localhost:8081/info
+
+----------
+
+0x server.js --port 8081
+
+    autocannon -c 100 -d 20 http://localhost:8081/info
+

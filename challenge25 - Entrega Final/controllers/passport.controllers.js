@@ -3,6 +3,7 @@ import bCrypt from 'bcrypt'
 
 import * as localPassport from 'passport-local'
 const LocalStrategy = localPassport.Strategy;
+import { Strategy as JWTstrategy, ExtractJwt as JWTExtract } from "passport-jwt";
 
 import mongoose from 'mongoose'
 import { mongoConn } from '../persistence/config/connection.js'
@@ -63,6 +64,23 @@ export const initPassport = () => {
         })
     )
 
+    passport.use(new JWTstrategy({
+            secretOrKey: process.env.PASSPORT_JWT_STRATEGY,
+            //jwtFromRequest: JWTExtract.fromUrlQueryParameter('token')
+            jwtFromRequest: JWTExtract.fromAuthHeaderAsBearerToken()
+        },
+        async (token, done) => {
+            console.log(token)
+            return await users.getByKeyValue('username', token.user.username)
+            .then(user => {
+                return done(null, user);
+            })
+            .catch(err => {
+                return done(err);
+            });
+        })
+    )
+      
     passport.serializeUser(function (user, done) {
         done(null, user);
     });

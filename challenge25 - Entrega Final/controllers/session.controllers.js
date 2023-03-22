@@ -1,4 +1,6 @@
 import MongoStore from 'connect-mongo'
+import passport from 'passport'
+import jwt from 'jsonwebtoken'
 import * as dotenv from 'dotenv'
 dotenv.config()
 const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true }
@@ -29,7 +31,7 @@ export const sessionControllerLogin = async (req, res, next) => {
         req.session.loggedin = true
         actualUser = req.session.passport.user.username
         //const datos = await user.getLeanByKeyValue('user', actualUser)
-        res.render('index.hbs', { username: req.session.passport.user.username, datos: {} })
+        res.render('index.hbs', { username: actualUser, datos: {} })
     } else {
         sessionActive = sessionActive === true ? false : undefined
         res.render('login.hbs', sessionActive !== undefined && !sessionActive ? { msgError: 'Session Expired' } : '')
@@ -44,4 +46,20 @@ export const sessionControllerLogout = (req, res) => {
         sessionActive = false
         res.render('logout.hbs', { username: username, timeoutRefresh: 3000 })  //3 seconds
     })
+}
+
+export const sessionControllerPostLogin = (req, res, next) => {
+    passport.authenticate('login', {
+        successRedirect: '/',
+        failureRedirect: '/login-error',
+    },
+    async(err, user, info) => {
+        req.login(user, { session: false }, async (err) => {
+            if (err)
+                next(err)
+            const token = jwt.sign({ user }, process.env.PASSPORT_JWT_STRATEGY)
+            return res.json({ user, token })
+            //res.render('index.hbs', { username: user.username, token: token, datos: {} })
+        })
+    })(req, res, next)
 }

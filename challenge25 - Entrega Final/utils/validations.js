@@ -1,3 +1,4 @@
+
 export const onlyAdmin = (req, res, next) => {
     let admin = req.get('Authorization') && req.get('Authorization') === 'admin' ? true : false
     if (admin || req.method === 'GET') {

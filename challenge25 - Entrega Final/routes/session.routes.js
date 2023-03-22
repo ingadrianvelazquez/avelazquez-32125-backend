@@ -2,7 +2,7 @@ import Router from 'express'
 import passport from 'passport'
 export const sessionRouter = Router()
 import { loggerConsole } from '../controllers/server.controllers.js'
-import { sessionControllerLogin, sessionControllerLogout } from '../controllers/session.controllers.js'
+import { sessionControllerLogin, sessionControllerLogout, sessionControllerPostLogin } from '../controllers/session.controllers.js'
 
 sessionRouter.get('/', sessionControllerLogin)
 
@@ -18,10 +18,7 @@ sessionRouter.get('/login-error', (req, res) => {
     res.render('login-error.hbs')
 })
 
-sessionRouter.post('/login', passport.authenticate('login', {
-    successRedirect: '/',
-    failureRedirect: '/login-error',
-}))
+sessionRouter.post('/login', sessionControllerPostLogin)
 
 sessionRouter.get('/signup', (req, res) => {
     loggerConsole.info({ 'url': req.originalUrl, 'method': req.method })

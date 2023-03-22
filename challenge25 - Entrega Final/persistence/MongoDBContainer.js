@@ -99,16 +99,17 @@ export class MongoDBContainer {
     }
 
     getLeanByKeyValue = async (key, value) => {
-        let ret = { 'error': 2, 'description': `Key ${key} = Value ${value} ON ${this.tableModel.collection.collectionName} Not Found` }
         let element = {}
         await this.tableModel.find({ [key]: value }).lean()
             .then((row) => {
                 element = row
             }).catch((err) => { loggerConsole.error(err); loggerError.error(err); throw err })
             .finally(() => { })
-            ret = element
+            let ret = {}
             if (element && key != 'email')
                 ret = element[0]
+            else 
+                ret = { 'error': 2, 'description': `Key ${key} = Value ${value} ON ${this.tableModel.collection.collectionName} Not Found` }
         return ret
     }
 
